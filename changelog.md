@@ -1,5 +1,13 @@
 # Changelog — Pucci Ambiental · adapta-cliente
 
+## 2026-09-18 — Ambiente oficial definido: RH Pucci
+- Projeto Skip criado na organização `Org de Luisa`: `RH Pucci` (projectId `59746`).
+- Skip Cloud provisionado e em execução: `rh-pucci-3116c`.
+- Preview: https://rh-pucci-3116c--preview.goskip.app
+- Backend: https://rh-pucci-3116c.shrd00.internal.goskip.dev
+- Produção ainda não publicada.
+- A partir da F1-T02, as tasks serão executadas nesse projeto, uma por vez. A criação do ambiente não iniciou a implementação da F1-T02.
+
 ## 2026-09-18 — DÚVIDA: ambiente canônico da F1-T02
 - O repositório operacional contém duas árvores com nomes divergentes: `04-fase-atual/` (referenciada pelo AGENTS/STATUS/SPEC) e `04_fase-atual/` (contém a cópia de fase/SPECs).
 - Foram encontrados projetos Skip de RH, mas nenhum vínculo explícito com este handoff: `Sistema RH Web` (ID 34231), `Dashboard RH (Supabase) Clone` (ID 32508) e `Portal RH Colaboradores` (ID 33433).
