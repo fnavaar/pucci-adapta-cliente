@@ -1,17 +1,26 @@
 # Changelog — Pucci Ambiental · adapta-cliente
 
+## 2026-09-18 — F1-T02 implementada, teste humano pendente
+- Núcleo de segurança publicado no Skip `RH Pucci`, versão `0.0.5`.
+- Migração `0001_f1_t02_security_core` aplicada: roles, `sensitive_payroll`, `competencies` e `audit_logs`.
+- Hooks server-side aplicam deny by default, impedem autoelevação, ocultam campos, registram leitura/escrita/exclusão e protegem t0/t1.
+- Laboratório visual adicionado ao preview para login, fixtures sintéticas, competência e auditoria.
+- QA do Skip passou em setup, análise estática, build, integrações e testes.
+- Provas backend passaram para negação, leitura por papel, escrita por papel, auditoria append-only e t0/t1; nenhum dado real foi usado.
+- F1-T02 permanece aberta aguardando teste humano da champion Marcela.
+- Evidência detalhada: `03_documentos/setup-ethos/evidencia-f1-t02.md`.
+
 ## 2026-09-18 — Ambiente oficial definido: RH Pucci
 - Projeto Skip criado na organização `Org de Luisa`: `RH Pucci` (projectId `59746`).
 - Skip Cloud provisionado e em execução: `rh-pucci-3116c`.
 - Preview: https://rh-pucci-3116c--preview.goskip.app
 - Backend: https://rh-pucci-3116c.shrd00.internal.goskip.dev
 - Produção ainda não publicada.
-- A partir da F1-T02, as tasks serão executadas nesse projeto, uma por vez. A criação do ambiente não iniciou a implementação da F1-T02.
+- A partir da F1-T02, as tasks serão executadas nesse projeto, uma por vez.
 
 ## 2026-09-18 — DÚVIDA: ambiente canônico da F1-T02
 - O repositório operacional contém duas árvores com nomes divergentes: `04-fase-atual/` (referenciada pelo AGENTS/STATUS/SPEC) e `04_fase-atual/` (contém a cópia de fase/SPECs).
-- Foram encontrados projetos Skip de RH, mas nenhum vínculo explícito com este handoff: `Sistema RH Web` (ID 34231), `Dashboard RH (Supabase) Clone` (ID 32508) e `Portal RH Colaboradores` (ID 33433).
-- Antes de implementar RBAC/RLS, auditoria e t0/t1, confirmar qual ambiente é oficial e qual árvore é canônica. Não alterar nenhum dos protótipos por suposição.
+- A dúvida de árvore permanece registrada para organização do handoff; a implementação técnica foi feita exclusivamente no projeto Skip oficial `RH Pucci`.
 
 ## 2026-09-18 · Marcela · Task F1-T01 concluída: política e matriz aprovadas
 - Política de dados e matriz de permissões versão 0.1 aprovadas por escrito pela champion Marcela.
