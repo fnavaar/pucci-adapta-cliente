@@ -9,7 +9,7 @@
 |---|---|---|
 | `SOUL.md` | Missão, princípios, modo de trabalho, limites | sim (tom/comunicação a validar) |
 | `IDENTITY.md` | Papel, responsabilidades, capacidades, não-faz | sim (nome do assistente a validar) |
-| `USER.md` | Empresa, champion, processo, ferramentas, restrições | sim (champion e acessos a validar) |
+| `USER.md` | Empresa, champion, processo, ferramentas, restrições | sim (champion definido: Marcela; acessos a validar) |
 | `sugestoes-conectores-automacoes.md` | 6 sugestões (2 necessárias, 2 recomendadas, 2 futuras) com alternativa sem conector | sim |
 | `mapa-de-agentes-e-loops.md` | Assistente principal + 4 loops × sistemas × SPECs F4 | sim |
 | `loops/LOOP-01..04` | Fichas completas (meta/validação/conectores/skills/arranque) | sim (baselines e SLA a validar) |
@@ -17,7 +17,7 @@
 ## Pendências da call de setup
 
 1. Nome do assistente e tom/comunicação preferido.
-2. Champion nominal + RACI (incl. Aline) — DH-07.
+2. RACI (incl. Aline) e acessos do champion Marcela — DH-07.
 3. Baselines: lead time do fechamento, volume de ajustes de ponto, atrasos documentais.
 4. SLA da contabilidade (DH-09) e formato do retorno (B-IMP-01).
 5. Formatos de export Stelanto/Flipchart (B-IMP-01).

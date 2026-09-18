@@ -17,4 +17,4 @@ O recorte deriva do escopo base (17/09), da análise crítica (AC-001..012, DH-0
 Pré-folha/conferência (F2), complementos/rateio gerencial/compliance (F3), loops (F4), validação integral (F5), sistema dos devs, IA, portais automáticos.
 
 ## Pendências herdadas
-Champion nominal e RACI (call de setup); baselines; formatos de export; base do INSS por escrito; volume operacional.
+RACI com Marcela como champion (call de setup); baselines; formatos de export; base do INSS por escrito; volume operacional.

@@ -9,7 +9,7 @@
 6. **Uploads em portais (Wehandle/Atlas) e assinaturas são humanos** — o sistema controla prazos e pendências.
 
 ## Papéis e alçadas
-- **Champion (a nomear na call):** dono do aceite, da política de dados e das exceções.
+- **Champion (Marcela):** dona do aceite, da política de dados e das exceções.
 - **Analista de RH/DP (Marcela/Aline):** operação diária (importação, ajustes, NFs).
 - **Homologadoras (Luisa/Marcela):** aprovação de ajustes de ponto com trilha.
 - **Magda:** financeiro (depósito/loja, Yampa).

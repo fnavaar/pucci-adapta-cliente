@@ -10,5 +10,5 @@ Workspace operacional do projeto **Sistema único de pré-folha/DP** (consultori
 - Uma task por vez; prova + teste humano antes da próxima.
 
 ## Papéis
-- **Champion:** a confirmar na call de setup (candidata: Luisa) — DH-07.
+- **Champion:** Marcela — responsável pelo aceite, pela política de dados e pelas exceções — DH-07.
 - **Consultor:** Felipe Navaar · **CSM:** Izabel.
