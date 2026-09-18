@@ -7,12 +7,11 @@
 - **Champion:** Marcela — definida pela CEO em 18/09/2026, executora e homologadora única das tasks, responsável pelo aceite, pela política de dados e pelas exceções.
 - **Execução autorizada:** Marcela conduz priorização, execução, validação e conclusão de todas as tasks; nenhum conflito de responsável deve pausar o fluxo.
 - **Tasks concluídas:** 1/8 (12,5%). F1-T01 concluída após aprovação escrita da política e matriz versão 0.1; CA-1-012 revalidado.
-- **Próxima task:** F1-T02 — ativar controle de acesso e trilha de auditoria no sistema.
+- **F1-T02:** implementação publicada no Skip `RH Pucci` e aguardando teste humano; ainda não concluída.
 - **Ambiente oficial:** Skip `RH Pucci` (projectId `59746`), na organização `Org de Luisa`; Skip Cloud em execução.
-- **B-ENV-01:** ambiente definido e provisionado; validação técnica e configuração de segurança continuam na F1-T02.
-- **B-GOV-01:** fechado quanto à aprovação documental da política; liberação técnica de dados continua condicionada à F1-T02.
-- Dados reais continuam bloqueados até ambiente autorizado, RBAC/RLS, trilha de auditoria e t0/t1 serem comprovados.
-- RBAC, trilha de auditoria e t0/t1 ainda não foram ativados; pertencem à F1-T02.
+- **B-ENV-01:** ambiente definido e provisionado; QA e validação técnica da F1-T02 passaram.
+- **B-GOV-01:** fechado quanto à aprovação documental da política; controles técnicos da F1-T02 implementados no preview, aguardando homologação humana.
+- Dados reais continuam bloqueados até a homologação da F1-T02 e confirmação dos controles no uso do processo.
 
 ## Ambiente oficial do projeto
 
@@ -21,10 +20,11 @@
 - **Preview:** https://rh-pucci-3116c--preview.goskip.app
 - **Backend:** https://rh-pucci-3116c.shrd00.internal.goskip.dev
 - **Produção:** https://rh-pucci-3116c.goskip.app — ainda não publicada
-- **Política de execução:** tarefas futuras serão implementadas neste projeto, uma por vez, seguindo a SPEC e os gates; nenhum dado real será usado sem os controles comprovados.
+- **Versão Skip:** `0.0.5`
+- **Política de execução:** tarefas futuras serão implementadas nesse projeto, uma por vez, seguindo a SPEC e os gates; nenhum dado real será usado sem os controles comprovados.
 
 ## Próximo passo
-Autorizar a implementação da F1-T02 no projeto Skip `RH Pucci` e confirmar a árvore canônica do repositório antes da primeira alteração técnica.
+Executar o teste humano da F1-T02 no preview e informar se funcionou. Não concluir a task nem iniciar a próxima antes da confirmação.
 
 ## Bloqueios ativos
-B-IMP-01 (formatos), B-MET-01 (baseline), B-FISC-01 (base INSS), B-STE-01 (Stelanto), confirmação da árvore canônica do handoff e a liberação técnica de dados até F1-T02 — detalhados nas SPECs.
+B-IMP-01 (formatos), B-MET-01 (baseline), B-FISC-01 (base INSS), B-STE-01 (Stelanto), teste humano da F1-T02 e a liberação de dados reais até a homologação — detalhados nas SPECs.
