@@ -1,0 +1,98 @@
+{
+  "schemaVersion": "adapta-cliente-handoff/v1",
+  "phase": 1,
+  "versions": {
+    "package": "1.0.0",
+    "adapta": "1.0.0",
+    "adaptaCliente": "1.0.0"
+  },
+  "generatedAt": "2026-09-18T19:37:14.076Z",
+  "note": "Pasta reconstruída no Drive a partir do pacote local validado; hashes referem-se aos arquivos do pacote local (artifacts/pucci-adapta-cliente).",
+  "files": [
+    {
+      "path": ".adapta-cliente/estado-atual.md",
+      "sha256": "40b52cb005961e0feec57351ca801cdd31357817cd5ba5624254eff4eb5d4259",
+      "classification": "template-publico"
+    },
+    {
+      "path": ".claude/settings.json",
+      "sha256": "a13bfbd696d8201b50de49bcb48d768207f557a9b5b3764d9fae0e51170a81dc",
+      "classification": "template-publico"
+    },
+    {
+      "path": "01_projeto/constituicao.md",
+      "sha256": "f1c07168c393b8b7324cdc065b589e3f3d5b91b80f4c5848f905cea7f4c61454",
+      "classification": "template-publico"
+    },
+    {
+      "path": "01_projeto/objetivo-e-visao.md",
+      "sha256": "4a98a320dd2e43b461b77053a5f422b359373dc0be357ef6e7052b74af144b19",
+      "classification": "template-publico"
+    },
+    {
+      "path": "02_reunioes/ata-de-corte.md",
+      "sha256": "1f87e7bb2c9a377275811db727cca55ca480bc3906670bcc0cd62893160f9816",
+      "classification": "template-publico"
+    },
+    {
+      "path": "03_documentos/setup-ethos/00-INDICE.md",
+      "sha256": "e366ef55d3f65fc8c21c54c4528fdc4aef579a1f9d63ab4b8f12b0869cbb1fcf",
+      "classification": "template-publico"
+    },
+    {
+      "path": "03_documentos/setup-ethos/SOUL.md",
+      "sha256": "c71671b8c90fd16eb12a0b445191b19f5afc866483e7f3beaa59124e4871339a",
+      "classification": "template-publico"
+    },
+    {
+      "path": "04_fase-atual/fase.md",
+      "sha256": "81da1783fb0f15bb4c3ec78a528b0ab04855dca0fbe30060e2ebc2e4fb55a84e",
+      "classification": "fase-atual"
+    },
+    {
+      "path": "04_fase-atual/specs/spec-1-001.md",
+      "sha256": "221955fc53cdd35e7d9fd48df9cc1673da3c6aca4386dfd4acc1637b8c7a4dc7",
+      "classification": "spec-fase-atual"
+    },
+    {
+      "path": "04_fase-atual/specs/spec-1-002.md",
+      "sha256": "c2fd7db68c98735994827b6c1ad72843eeedaf767a5b82bd5507fd968df53e60",
+      "classification": "spec-fase-atual"
+    },
+    {
+      "path": "04_fase-atual/specs/spec-1-003.md",
+      "sha256": "c6292410c56bbaf5df4b21549f0207db9fe443352bd6d475716a1ae1d557612e",
+      "classification": "spec-fase-atual"
+    },
+    {
+      "path": "04_fase-atual/specs/spec-1-004.md",
+      "sha256": "0156e18d9909c53799368b59f63b3d9e6c957897accbc4384d7c21a6014b0e50",
+      "classification": "spec-fase-atual"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "5e62ad8ae07168a746685da7286e03beb29c892dca8978c32d10b8bee1ea6e14",
+      "classification": "template-publico"
+    },
+    {
+      "path": "CLAUDE.md",
+      "sha256": "052dfa605a8a2ac911d2767e9ab843ba95a96526996a07fb3719096500bbc958",
+      "classification": "template-publico"
+    },
+    {
+      "path": "README.md",
+      "sha256": "84d4675b3a2205dbf56d6f8ce669f082b40c1a5150e972c3f1f5b40bf9562cd0",
+      "classification": "template-publico"
+    },
+    {
+      "path": "STATUS.md",
+      "sha256": "c8fefe14f0a2e52e923fa5bd76a01162056ed2b5702f965b50328a5949849db1",
+      "classification": "template-publico"
+    },
+    {
+      "path": "changelog.md",
+      "sha256": "01f469775e2238aca2273767c71a7990730130b5727a6d3408263484f5c16430",
+      "classification": "template-publico"
+    }
+  ]
+}
