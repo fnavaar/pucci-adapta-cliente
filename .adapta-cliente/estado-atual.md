@@ -1,21 +1,13 @@
-# Estado atual (espelho operacional)
-
-**Atualizado:** 2026-09-18 pela consultoria no handoff; champion definido pela CEO.
-
-- Champion: **Marcela - Champion**.
-- Fase: **1** · Tasks: 0/8 concluídas · Elegível: **F1-T01** (política de dados).
-- Precedência de estado: este arquivo e `STATUS.md` prevalecem sobre checkboxes antigos.
-- Bloqueios B-* ativos: ver `STATUS.md`.
-
-## Execução coordenada
+# Estado atual — Adapta Cliente
 
 - task_id: F1-T01
+- champion: Marcela
 - spec: 04-fase-atual/specs/spec-1-003.md
-- etapa: bloqueada
+- etapa: concluida
 - autorizacao_implementacao: confirmada em 2026-09-18T17:17:00-03:00 — "Posso implementar"
-- teste_humano: revalidação necessária por Marcela; aprovação anterior removida do fluxo de execução
-- verificacao_automatica: passou — arquivo publicado lido; 13 verificações estruturais; nenhum padrão de segredo detectado; GitHub Advanced Security indisponível no repositório
-- aprendizado: pendente
-- ultima_acao: revisão anterior removida do fluxo; fechamento revalidado e bloqueado por ausência de aprovação escrita da champion Marcela
-- proxima_acao: obter aprovação escrita da Marcela sobre a versão 0.1 da política e matriz
-- atualizado_em: 2026-09-18T17:24:00-03:00
+- teste_humano: aprovado em 2026-09-18T17:39:00-03:00 — "aprovado"; Marcela formalizada como responsável única no GitHub
+- verificacao_automatica: passou — política aprovada, CA-1-012 revalidado, arquivo publicado lido, 9 verificações estruturais e nenhum padrão de segredo detectado
+- aprendizado: capturado:06_notas/aprendizado-contínuo/AP-2026-09-18-1743-separar-aprovacao-de-liberacao.md
+- ultima_acao: F1-T01 concluída; fase, STATUS e changelog atualizados; B-GOV-01 fechado quanto à aprovação documental
+- proxima_acao: analisar F1-T02 — ativar controle de acesso e trilha de auditoria no sistema
+- atualizado_em: 2026-09-18T17:45:00-03:00
