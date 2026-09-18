@@ -105,17 +105,17 @@ combinação não indicada é negada por padrão.
 
 ### 6.2 Matriz proposta
 
-| Domínio/campos | Champion/Gestora — Marcela | Analista RH/DP — Aline ou Marcela em operação | Financeiro — Magda | Homologadora — Luisa | Dominium | Sem permissão |
-|---|---:|---:|---:|---:|---:|---:|
-| Identificação e CPF | VEAX | VE | V | — | — | — |
-| Salário e remuneração | VEAX | VE | VEX | — | — | — |
-| Conta bancária e PIX | VEAX | — | VEAX | — | — | — |
-| Pensão alimentícia | VEAX | VE | VE | — | — | — |
-| Ponto, ajustes e justificativas | VEAX | VE | — | VA | — | — |
-| Projetos, alocação e rateio | VEAX | VE | VEX | V | — | — |
-| Notas fiscais, tomador e retenção | VEAX | VE | VEAX | — | — | — |
-| Política, concessões e exceções | VEAX | V | V | V | — | — |
-| Logs de auditoria | VX | V dos próprios atos e escopo autorizado | V dos próprios atos e escopo autorizado | V dos próprios atos e escopo autorizado | — | — |
+| Domínio/campos | Champion/Gestora — Marcela | Analista RH/DP — Aline ou Marcela em operação | Financeiro — Magda | Dominium | Sem permissão |
+|---|---:|---:|---:|---:|---:|
+| Identificação e CPF | VEAX | VE | V | — | — |
+| Salário e remuneração | VEAX | VE | VEX | — | — |
+| Conta bancária e PIX | VEAX | — | VEAX | — | — |
+| Pensão alimentícia | VEAX | VE | VE | — | — |
+| Ponto, ajustes e justificativas | VEAX | VE | — | — | — |
+| Projetos, alocação e rateio | VEAX | VE | VEX | — | — |
+| Notas fiscais, tomador e retenção | VEAX | VE | VEAX | — | — |
+| Política, concessões e exceções | VEAX | V | V | — | — |
+| Logs de auditoria | VX | V dos próprios atos e escopo autorizado | V dos próprios atos e escopo autorizado | — | — |
 
 ### 6.3 Limites da matriz
 
@@ -126,13 +126,11 @@ combinação não indicada é negada por padrão.
    Não acessa conta bancária ou PIX pela matriz inicial.
 3. **Magda — Financeiro:** trata remuneração, pagamentos, PIX e informações fiscais necessárias
    ao financeiro. Não altera ponto nem justificativas.
-4. **Luisa — Homologadora:** visualiza e homologa ajustes de ponto e consulta somente os domínios
-   indicados. Não recebe acesso automático a CPF, salário individual, banco, PIX ou pensão.
-5. **Dominium — Contabilidade:** não recebe conta de usuário no sistema. Recebe apenas exportação
+4. **Dominium — Contabilidade:** não recebe conta de usuário no sistema. Recebe apenas exportação
    mínima, autorizada e registrada, quando o processo exigir.
-6. **Sem permissão:** não visualiza nem consulta campos sensíveis, inclusive por busca, relatório,
+5. **Sem permissão:** não visualiza nem consulta campos sensíveis, inclusive por busca, relatório,
    exportação ou API.
-7. **Agente/consultor:** trabalha somente com documentação e fixtures sintéticas; não recebe dado
+6. **Agente/consultor:** trabalha somente com documentação e fixtures sintéticas; não recebe dado
    real. Qualquer acesso futuro exigirá papel específico aprovado pela Champion.
 
 ## 7. Provas exigidas antes de liberar dado real

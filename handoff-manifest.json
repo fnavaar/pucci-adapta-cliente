@@ -6,12 +6,12 @@
     "adapta": "1.0.0",
     "adaptaCliente": "1.0.0"
   },
-  "generatedAt": "2026-09-18T20:22:14Z",
-  "note": "Handoff operacional; hashes calculados a partir do commit f5ec5e7. A política de champion foi formalizada em 2026-09-18; a task F1-T01 permanece sob o fluxo de aprovação humana.",
+  "generatedAt": "2026-09-18T20:36:00.000Z",
+  "note": "Handoff operacional; hashes calculados a partir do estado publicado. Marcela é a única responsável pelo ciclo de execução; conflitos de responsável não pausam tasks. A task F1-T01 permanece sob o fluxo de aprovação humana.",
   "files": [
     {
       "path": ".adapta-cliente/estado-atual.md",
-      "sha256": "c2068f0da790d01a2184b075d666faecdad4c16a3fc70ceb7b7c79c146f2111f",
+      "sha256": "4cd86fe7bf479b7e17c439bc5fc151285e0aaf0314d69d2200d190d46ad96530",
       "classification": "template-publico"
     },
     {
@@ -21,7 +21,7 @@
     },
     {
       "path": "01_projeto/constituicao.md",
-      "sha256": "28f70c94d6ae67adb55d5d2cbb48d8d266bdfee303ef56be1e05fef529ad2231",
+      "sha256": "44fa21ceb2e526caf6786c47307790c71f3108fbac3281769cf966128679c661",
       "classification": "template-publico"
     },
     {
@@ -36,7 +36,7 @@
     },
     {
       "path": "03_documentos/setup-ethos/00-INDICE.md",
-      "sha256": "d58f942ee25e58340bfe0f784d065c840e5dd7967cbb9e3b7471b07d2d7e8a84",
+      "sha256": "1be0d451ddede5e2ca1c52d29574c9d46341d606e85e785c6d7f6bdc520d8092",
       "classification": "template-publico"
     },
     {
@@ -45,13 +45,18 @@
       "classification": "template-publico"
     },
     {
+      "path": "03_documentos/setup-ethos/politica-dados-e-matriz-permissoes.md",
+      "sha256": "deaa1f07c897bb33e1f679835756f646121aee1445707b378b2ccb36be210cda",
+      "classification": "fase-atual"
+    },
+    {
       "path": "04_fase-atual/fase.md",
-      "sha256": "134b620c5b6489773795690a263112c29743dd1d9a53232a8b7d321bcccb6523",
+      "sha256": "4c80d4a151cd01531805c90c2604d2416921f919b16e731f74339fa1fd84bbe5",
       "classification": "fase-atual"
     },
     {
       "path": "04_fase-atual/specs/spec-1-001.md",
-      "sha256": "6d78598662a1418bcb29fcff8ba6dbc0c8b47916d4e025d99fbbc0cd1ea11a32",
+      "sha256": "6321aa6daeb30550123a4cc937020dd88097875608561707c7679d251137bd47",
       "classification": "spec-fase-atual"
     },
     {
@@ -71,27 +76,27 @@
     },
     {
       "path": "AGENTS.md",
-      "sha256": "257c7dc91e81381186003bb3bfbf453b97efb1f2e4a7018cf4e7953ab95ab4ba",
+      "sha256": "b15da603798db5de9e62b669ecb71d8738f7998cad3d65d10b45b35b3142ed08",
       "classification": "template-publico"
     },
     {
       "path": "CLAUDE.md",
-      "sha256": "0629b60cdd6a658f51f8bb1b06480a366262930fa37084c3b0d0976fd4f62207",
+      "sha256": "4592eb66490bf3c0826bab621dd66015ff48781c548dbf3942b793a67ef3a4c7",
       "classification": "template-publico"
     },
     {
       "path": "README.md",
-      "sha256": "9b14b14c7f1d1ef372a8562ae9a0b96026a1350689e7b6fc138a6aa8aad61bde",
+      "sha256": "025dbe9a1ccdf47ff5f4f408180e746b092700563079b342e6976836d7becf99",
       "classification": "template-publico"
     },
     {
       "path": "STATUS.md",
-      "sha256": "2e4ec35030551a64a83d9d5d9a2a0ed8bc9dd1ecf6cc42ab8d5141ae0a21aa1c",
+      "sha256": "8ae3abcf60e46873c911c4768490506fadb09e442e2aa99a8cbc95ce6c917443",
       "classification": "template-publico"
     },
     {
       "path": "changelog.md",
-      "sha256": "7d2c1139fc689c05afe6a9d6357e796266886fd42a9947bb3e7aa5c7666bdc82",
+      "sha256": "aa7d23253d710f74f6389311c50f20c9456800302e0853c5f3bf0079e7ec40d7",
       "classification": "template-publico"
     }
   ]

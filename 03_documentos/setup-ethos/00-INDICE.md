@@ -17,7 +17,7 @@
 ## Pendências da call de setup
 
 1. Nome do assistente e tom/comunicação preferido.
-2. RACI (incl. Aline) e acessos do champion Marcela — DH-07.
+2. RACI exclusivo de Marcela (incl. Aline como apoio operacional) e acessos do champion — DH-07.
 3. Baselines: lead time do fechamento, volume de ajustes de ponto, atrasos documentais.
 4. SLA da contabilidade (DH-09) e formato do retorno (B-IMP-01).
 5. Formatos de export Stelanto/Flipchart (B-IMP-01).

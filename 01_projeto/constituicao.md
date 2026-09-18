@@ -9,9 +9,9 @@
 6. **Uploads em portais (Wehandle/Atlas) e assinaturas são humanos** — o sistema controla prazos e pendências.
 
 ## Papéis e alçadas
-- **Champion (Marcela):** dona do aceite, da política de dados e das exceções.
+- **Champion, executora e homologadora única das tasks (Marcela):** dona do aceite, da política de dados, das exceções e da conclusão do ciclo de execução.
 - **Analista de RH/DP (Marcela/Aline):** operação diária (importação, ajustes, NFs).
-- **Homologadoras (Luisa/Marcela):** aprovação de ajustes de ponto com trilha.
+- **Homologação:** Marcela aprova ajustes de ponto com trilha.
 - **Magda:** financeiro (depósito/loja, Yampa).
 - **Contabilidade (Dominium):** processamento legal da folha — fora do sistema.
 
