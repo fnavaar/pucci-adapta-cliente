@@ -1,5 +1,10 @@
 # Changelog — Pucci Ambiental · adapta-cliente
 
+## 2026-09-18 — DÚVIDA: ambiente canônico da F1-T02
+- O repositório operacional contém duas árvores com nomes divergentes: `04-fase-atual/` (referenciada pelo AGENTS/STATUS/SPEC) e `04_fase-atual/` (contém a cópia de fase/SPECs).
+- Foram encontrados projetos Skip de RH, mas nenhum vínculo explícito com este handoff: `Sistema RH Web` (ID 34231), `Dashboard RH (Supabase) Clone` (ID 32508) e `Portal RH Colaboradores` (ID 33433).
+- Antes de implementar RBAC/RLS, auditoria e t0/t1, confirmar qual ambiente é oficial e qual árvore é canônica. Não alterar nenhum dos protótipos por suposição.
+
 ## 2026-09-18 · Marcela · Task F1-T01 concluída: política e matriz aprovadas
 - Política de dados e matriz de permissões versão 0.1 aprovadas por escrito pela champion Marcela.
 - Critério CA-1-012 revalidado: aprovação registrada antes de qualquer dado real.
