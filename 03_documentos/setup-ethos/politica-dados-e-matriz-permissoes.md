@@ -1,16 +1,15 @@
 # Política de dados e matriz de permissões — RH/DP Pucci
 
 **Versão:** 0.1
-**Status:** RASCUNHO PARA APROVAÇÃO DA CHAMPION
+**Status:** APROVADA PELA CHAMPION
 **Task:** F1-T01
 **SPEC:** `04-fase-atual/specs/spec-1-003.md`
 **Champion:** Marcela
 **Escopo:** fechamento mensal da pré-folha da Pucci Ambiental
 
-> Este documento é a proposta operacional da política mínima de dados. Ele só entra em vigor
-> depois de aprovação escrita da champion. Até lá, nenhum dado real deve ser inserido no sistema.
-> A aprovação desta política também não substitui a ativação do ambiente e dos controles técnicos
-> previstos na F1-T02.
+> Esta política foi aprovada pela champion em 18/09/2026. A aprovação atende o CA-1-012 e
+> encerra a definição documental da F1-T01. Ela não substitui a ativação e a prova dos controles
+> técnicos da F1-T02; até lá, nenhum dado real deve ser inserido no sistema.
 
 ## 1. Decisões obrigatórias
 
@@ -103,7 +102,7 @@
 A permissão de exportar não implica autorização para enviar por canal não controlado. Toda
 combinação não indicada é negada por padrão.
 
-### 6.2 Matriz proposta
+### 6.2 Matriz aprovada
 
 | Domínio/campos | Champion/Gestora — Marcela | Analista RH/DP — Aline ou Marcela em operação | Financeiro — Magda | Dominium | Sem permissão |
 |---|---:|---:|---:|---:|---:|
@@ -135,9 +134,8 @@ combinação não indicada é negada por padrão.
 
 ## 7. Provas exigidas antes de liberar dado real
 
-A política será considerada operacional somente quando houver:
+A política está aprovada, mas os dados reais continuam bloqueados até haver:
 
-- aprovação escrita da Champion com data e versão;
 - ambiente autorizado;
 - prova negativa de acesso para papel sem permissão;
 - prova de leitura/escrita autorizada com trilha consultável;
@@ -146,15 +144,15 @@ A política será considerada operacional somente quando houver:
 - registro de qualquer exceção à matriz.
 
 A ativação técnica, as provas de acesso/auditoria e os campos t0/t1 pertencem à F1-T02. Esta
-F1-T01 entrega a política e a matriz para aprovação; não ativa esses controles.
+F1-T01 entrega a política e a matriz aprovadas; não ativa esses controles.
 
 ## 8. Registro de aprovação
 
 - **Champion:** Marcela
-- **Versão aprovada:** pendente
-- **Decisão:** pendente de aprovação escrita
-- **Data:** pendente
-- **Observações/exceções aprovadas:** pendente
+- **Versão aprovada:** 0.1
+- **Decisão:** aprovada por escrito pela Champion
+- **Data:** 2026-09-18
+- **Observações/exceções aprovadas:** nenhuma registrada
 
 **Referências:** `01_projeto/constituicao.md`, `01_projeto/objetivo-e-visao.md`,
 `04-fase-atual/specs/spec-1-003.md`, `STATUS.md`.
