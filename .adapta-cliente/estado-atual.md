@@ -8,6 +8,6 @@
 - teste_humano: pendente
 - verificacao_automatica: pendente — análise concluída; nenhum produto alterado e nenhuma prova de exportação executada
 - aprendizado: pendente
-- ultima_acao: F1-T02 concluída; F1-T03 selecionada e analisada como primeira task pendente da Fase 1
-- proxima_acao: aguardar autorização para implementar a prova técnica de exportação
-- atualizado_em: 2026-09-22T13:04:00-03:00
+- ultima_acao: Marcela esclareceu que a contabilidade não oferece acesso ao sistema; a evidência será a cadeia real de e-mails enviada pela Pucci e a resposta da contabilidade, com anexos quando existirem
+- proxima_acao: aguardar autorização para implementar a prova e receber acesso read-only ao Stelanto/Flipchart e a cadeia de e-mails da contabilidade
+- atualizado_em: 2026-09-22T16:21:00-03:00
