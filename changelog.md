@@ -1,8 +1,14 @@
 # Changelog — Pucci Ambiental · adapta-cliente
 
+## 2026-09-22 — F1-T02: passo 8 aprovado; passo 9 pendente
+- Marcela confirmou o passo 8 no preview.
+- Resultado: competência sintética encerrada com status `closed`, t1 preenchido automaticamente e t0 preservado.
+- Passo 8 aprovado na homologação humana.
+- Passos 9 e 10 permanecem pendentes; F1-T02 não concluída.
+
 ## 2026-09-22 — F1-T02: passo 7 aprovado; passo 8 pendente
 - Marcela confirmou o passo 7 no preview.
-- Resultado: competência sintética aberta com status `open`, `t0` preenchido automaticamente e `t1` vazio.
+- Resultado: competência sintética aberta com status `open`, t0 preenchido automaticamente e t1 vazio.
 - Passo 7 aprovado na homologação humana.
 - Passos 8 a 10 permanecem pendentes; F1-T02 não concluída.
 
@@ -12,7 +18,7 @@
 - Passo 6 aprovado na homologação humana.
 - Passo 7 ficou como próxima ação.
 
-## 2026-09-22 — DEBUG F1-T02: divergência entre preview e produção; registro intermediário supersedido
+## 2026-09-22 — DEBUG F1-T02: divergência entre preview e produção; registro intermediário superseded
 - **Sintoma:** após a correção visual da versão `0.0.6`, houve divergência sobre a URL usada no teste.
 - **Reprodução:** o preview serve bundle contendo `fixtureMessage` e a produção serve bundle sem `fixtureMessage`.
 - **Causa:** a versão `0.0.6` está no preview; a produção ainda entrega bundle anterior.
@@ -52,5 +58,5 @@
 - Política de dados e matriz de permissões versão 0.1 aprovadas por escrito pela champion Marcela.
 - Critério CA-1-012 revalidado: aprovação registrada antes de qualquer dado real.
 - Verificação documental passou; nenhum padrão de segredo detectado.
-- Dados reais continuam bloqueados até a ativação dos controles técnicos da F1-T02.
+- Dados reais continuam bloqueados até a ativação comprovada dos controles técnicos da F1-T02.
 - Aprendizado candidato registrado em `06_notas/aprendizado-contínuo/AP-2026-09-18-1743-separar-aprovacao-de-liberacao.md`.

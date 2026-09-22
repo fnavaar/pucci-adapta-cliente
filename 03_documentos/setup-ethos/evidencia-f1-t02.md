@@ -50,6 +50,7 @@
 | Teste humano do passo 5 | OK — registro consultado; colaborador, CPF, salário, pensão, conta e PIX sintéticos exibidos |
 | Teste humano do passo 6 | OK — trilha exibida com ator, ação, registro e campos |
 | Teste humano do passo 7 | OK — competência aberta; status `open`, t0 automático preenchido e t1 vazio |
+| Teste humano do passo 8 | OK — competência encerrada; status `closed`, t1 automático preenchido e t0 preservado |
 
 ## Debug Summary — confirmação visual
 
@@ -58,10 +59,10 @@
 **Causa raiz:** o feedback de sucesso era renderizado apenas no topo da página, fora do card da ação.  
 **Correção:** adicionar confirmação `Operação concluída` dentro do card da fixture, junto do resultado criado; versão `0.0.6` no preview.  
 **Verificação automática:** QA completo da versão `0.0.6` passou.  
-**Gate atual:** passos 3 a 7 aprovados; aguardando passos 8 a 10.
+**Gate atual:** passos 3 a 8 aprovados; aguardando passos 9 e 10.
 
 ## Limitações conhecidas
 
 - A interface do template não possui suíte E2E; a prova de segurança foi executada diretamente contra o backend com contas e registros sintéticos.
 - A produção está servindo versão anterior ao `0.0.6`; o teste humano deve usar o preview até a publicação autorizada.
-- A task ainda não está concluída: falta a homologação humana dos passos 8 a 10.
+- A task ainda não está concluída: falta a homologação humana dos passos 9 e 10.
