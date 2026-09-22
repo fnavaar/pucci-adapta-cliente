@@ -1,5 +1,11 @@
 # Changelog — Pucci Ambiental · adapta-cliente
 
+## 2026-09-22 — F1-T02: passo 4 aprovado após correção visual; passo 5 pendente
+- Marcela repetiu o passo 4 no preview da versão `0.0.6`.
+- Resultado: fixture sintética criada, novo ID exibido, valores sintéticos exibidos e mensagem `Operação concluída` visível dentro do card.
+- Passo 4 aprovado na homologação humana após o debug da confirmação visual.
+- Passos 5 a 10 permanecem pendentes; F1-T02 não concluída.
+
 ## 2026-09-22 — DEBUG F1-T02: confirmação visual da fixture corrigida, novo teste humano pendente
 - **Sintoma:** no passo 4 do teste humano, a fixture sintética foi criada; um novo ID e os valores sintéticos apareceram, mas a mensagem visual "Operação concluída" não foi percebida.
 - **Reprodução/evidência:** backend registrou `POST /api/collections/sensitive_payroll/records` com HTTP 200; não houve erro de hook; o componente renderizava a mensagem somente no topo da página, fora do card da ação.
@@ -7,7 +13,7 @@
 - **Correção:** feedback de criação da fixture passou a ser renderizado também dentro do card da fixture, junto do botão, ID e registro. Skip RH Pucci versão `0.0.6`.
 - **QA:** setup, análise estática, build, integrações e testes passaram.
 - **Dados:** somente fixtures sintéticas; nenhum dado real usado.
-- **Gate:** F1-T02 permanece aberta aguardando a repetição do passo 4 pela champion Marcela.
+- **Gate:** F1-T02 permaneceu aberta aguardando a repetição do passo 4 pela champion Marcela; repetição aprovada em seguida.
 
 ## 2026-09-18 — F1-T02 implementada, teste humano pendente
 - Núcleo de segurança publicado no Skip `RH Pucci`, versão `0.0.5`.
