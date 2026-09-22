@@ -1,8 +1,9 @@
 # Evidência — F1-T02: controle de acesso, auditoria e t0/t1
 
-**Data:** 2026-09-18
-**Ambiente:** Skip `RH Pucci` · projectId `59746` · versão `0.0.5`
-**SPEC:** `04-fase-atual/specs/spec-1-003.md`
+**Data da implementação:** 2026-09-18  
+**Data do debug visual:** 2026-09-22  
+**Ambiente:** Skip `RH Pucci` · projectId `59746` · versão implementada `0.0.5`; correção visual na versão `0.0.6`  
+**SPEC:** `04-fase-atual/specs/spec-1-003.md`  
 **Dados:** somente fixtures sintéticas; nenhum dado real usado.
 
 ## Implementado
@@ -14,16 +15,22 @@
 - Hooks server-side para impedir autoelevação, aplicar limites de escrita, ocultar campos e registrar leitura/escrita/exclusão.
 - Bootstrap protegido para criar a primeira champion apenas quando não existe usuário.
 - Laboratório visual no preview para login, fixture sintética, consulta de campos, competência e trilha.
+- Feedback de criação da fixture renderizado dentro do card da ação na versão `0.0.6`.
 
 ## Provas automatizadas executadas
 
 | Prova | Resultado |
 |---|---|
-| QA Skip: setup | PASSOU |
-| QA Skip: análise estática | PASSOU |
-| QA Skip: build | PASSOU |
-| QA Skip: integrações | PASSOU |
-| QA Skip: testes | PASSOU; o template não possui suíte de testes própria |
+| QA Skip v0.0.5: setup | PASSOU |
+| QA Skip v0.0.5: análise estática | PASSOU |
+| QA Skip v0.0.5: build | PASSOU |
+| QA Skip v0.0.5: integrações | PASSOU |
+| QA Skip v0.0.5: testes | PASSOU; o template não possui suíte de testes própria |
+| QA Skip v0.0.6 após correção visual: setup | PASSOU |
+| QA Skip v0.0.6 após correção visual: análise estática | PASSOU |
+| QA Skip v0.0.6 após correção visual: build | PASSOU |
+| QA Skip v0.0.6 após correção visual: integrações | PASSOU |
+| QA Skip v0.0.6 após correção visual: testes | PASSOU |
 | Migração `0001_f1_t02_security_core` | aplicada |
 | Papel `none` visualizando registro sensível | NEGADO — HTTP 404 |
 | Papel `homologator` visualizando registro sensível | NEGADO — HTTP 404 |
@@ -38,10 +45,20 @@
 | Cliente tentando reabrir competência encerrada/alterar t0/t1 | NEGADO — HTTP 400 |
 | Auditoria de leitura/escrita | ator, ação, registro e campos registrados |
 | Logs de hook após as provas | nenhum erro de hook registrado |
+| Primeiro teste humano do passo 3 | OK — papel Champion / Gestora confirmado |
+| Primeiro teste humano do passo 4 | parcial — fixture criada, ID e valores sintéticos exibidos; confirmação visual não percebida |
+
+## Debug Summary
+
+**Task e problema:** F1-T02; confirmação visual ausente após criação da fixture sintética no passo 4.  
+**Reprodução:** `POST /api/collections/sensitive_payroll/records` retornou HTTP 200; o ID e o registro apareceram; não houve erro de hook.  
+**Causa raiz:** o feedback de sucesso era renderizado apenas no topo da página, fora do card da ação.  
+**Correção:** adicionar confirmação `Operação concluída` dentro do card da fixture, junto do resultado criado; versão `0.0.6`.  
+**Verificação automática:** QA completo da versão `0.0.6` passou.  
+**Gate atual:** aguardando novo teste humano do passo 4.
 
 ## Limitações conhecidas
 
-- A interface do template não possui suíte E2E; a prova de segurança foi executada diretamente
-  contra o backend com contas e registros sintéticos.
-- A produção não foi publicada. O teste humano deve usar o preview.
-- A task ainda não está concluída: falta a homologação humana da champion.
+- A interface do template não possui suíte E2E; a prova de segurança foi executada diretamente contra o backend com contas e registros sintéticos.
+- A produção está publicada conforme status verificado em 22/09/2026; o teste humano desta task deve usar o preview.
+- A task ainda não está concluída: falta a repetição do passo 4 após a correção visual e a homologação humana completa da champion.

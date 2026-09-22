@@ -1,5 +1,14 @@
 # Changelog — Pucci Ambiental · adapta-cliente
 
+## 2026-09-22 — DEBUG F1-T02: confirmação visual da fixture corrigida, novo teste humano pendente
+- **Sintoma:** no passo 4 do teste humano, a fixture sintética foi criada; um novo ID e os valores sintéticos apareceram, mas a mensagem visual "Operação concluída" não foi percebida.
+- **Reprodução/evidência:** backend registrou `POST /api/collections/sensitive_payroll/records` com HTTP 200; não houve erro de hook; o componente renderizava a mensagem somente no topo da página, fora do card da ação.
+- **Causa raiz confirmada:** o feedback de sucesso estava globalmente no topo da tela; após a ação no card, ele podia ficar fora da área visível, embora a operação tivesse concluído.
+- **Correção:** feedback de criação da fixture passou a ser renderizado também dentro do card da fixture, junto do botão, ID e registro. Skip RH Pucci versão `0.0.6`.
+- **QA:** setup, análise estática, build, integrações e testes passaram.
+- **Dados:** somente fixtures sintéticas; nenhum dado real usado.
+- **Gate:** F1-T02 permanece aberta aguardando a repetição do passo 4 pela champion Marcela.
+
 ## 2026-09-18 — F1-T02 implementada, teste humano pendente
 - Núcleo de segurança publicado no Skip `RH Pucci`, versão `0.0.5`.
 - Migração `0001_f1_t02_security_core` aplicada: roles, `sensitive_payroll`, `competencies` e `audit_logs`.
@@ -15,7 +24,7 @@
 - Skip Cloud provisionado e em execução: `rh-pucci-3116c`.
 - Preview: https://rh-pucci-3116c--preview.goskip.app
 - Backend: https://rh-pucci-3116c.shrd00.internal.goskip.dev
-- Produção ainda não publicada.
+- Produção publicada conforme status verificado em 22/09/2026.
 - A partir da F1-T02, as tasks serão executadas nesse projeto, uma por vez.
 
 ## 2026-09-18 — DÚVIDA: ambiente canônico da F1-T02
