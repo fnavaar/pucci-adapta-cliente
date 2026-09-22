@@ -8,6 +8,7 @@
 - **Execução autorizada:** Marcela conduz priorização, execução, validação e conclusão de todas as tasks; nenhum conflito de responsável deve pausar tasks.
 - **Tasks concluídas:** 2/8 (25%). F1-T01 concluída após aprovação escrita da política e matriz versão 0.1; F1-T02 concluída em 22/09/2026 após QA da versão `0.0.6` e homologação humana dos passos 3 a 10 no preview.
 - **F1-T02:** concluída no ambiente homologado `RH Pucci`/preview. Critérios CA-1-010 a CA-1-013 comprovados com fixtures sintéticas; nenhum dado real foi usado.
+- **F1-T03:** selecionada e analisada; aguardando autorização para implementar a prova técnica de exportação. Nenhum produto foi alterado e nenhuma exportação foi executada.
 - **Ambiente oficial:** Skip `RH Pucci` (projectId `59746`), na organização `Org de Luisa`; Skip Cloud em execução.
 - **B-ENV-01:** ambiente definido e provisionado; QA e validação técnica da F1-T02 passaram.
 - **B-GOV-01:** política/matriz aprovadas e controles técnicos homologados no preview. O uso de dados reais permanece condicionado à decisão operacional de publicar/confirmar o ambiente produtivo; nenhum dado real foi inserido.
@@ -24,7 +25,7 @@
 - **Política de execução:** tarefas futuras serão implementadas nesse projeto, uma por vez, seguindo a SPEC e os gates; nenhum dado real será usado sem confirmação do ambiente produtivo.
 
 ## Próximo passo
-Nenhuma task será iniciada automaticamente. Aguardar novo pedido para analisar a próxima task elegível da Fase 1.
+Autorizar a implementação da F1-T03 e conceder acesso read-only ao Stelanto, ao Campos Solo–Flipchart e à amostra real devolvida pela contabilidade via Magda/contador. Depois disso, executar a prova e produzir o relatório com formato, campos, granularidade, via e recomendação/fallback de importação.
 
 ## Bloqueios ativos
-B-IMP-01 (formatos), B-MET-01 (baseline), B-FISC-01 (base INSS), B-STE-01 (Stelanto) e a confirmação/publicação do bundle `0.0.6` no ambiente produtivo. Esses itens não reabrem a F1-T02, que foi concluída no preview homologado.
+B-IMP-01 (formatos), acesso read-only ao Stelanto/Flipchart e amostra da contabilidade para F1-T03, B-MET-01 (baseline), B-FISC-01 (base INSS), B-STE-01 (decisão Stelanto) e a confirmação/publicação do bundle `0.0.6` no ambiente produtivo. Esses itens não reabrem a F1-T02, que foi concluída no preview homologado.

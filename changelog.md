@@ -1,5 +1,12 @@
 # Changelog — Pucci Ambiental · adapta-cliente
 
+## 2026-09-22 — F1-T03 selecionada; análise concluída, autorização pendente
+- Próxima task elegível da Fase 1: **Provar como o Stelanto e o Flipchart exportam seus dados**.
+- SPEC-1-004 · critérios CA-1-014 e CA-1-017 · Leva 2.
+- Nenhum arquivo de produto foi alterado; nenhuma exportação foi executada.
+- Pré-condições ainda pendentes: acesso read-only ao Stelanto e ao Campos Solo–Flipchart; amostra real devolvida pela contabilidade via Magda/contador.
+- Próximo gate: autorização da champion para implementar a prova técnica e disponibilização dos acessos.
+
 ## 2026-09-22 — Marcela · Task F1-T02 concluída: controle de acesso, auditoria e t0/t1 homologados
 - Revalidação final independente executada após a aprovação humana do passo 10.
 - **CA-1-010 PASSOU:** papéis sem permissão foram negados ao acessar registro sensível (`none`/`homologator` com HTTP 404); a tentativa de alteração de PIX por `analyst` foi negada com HTTP 403.
@@ -75,5 +82,5 @@
 - Política de dados e matriz de permissões versão 0.1 aprovadas por escrito pela champion Marcela.
 - Critério CA-1-012 revalidado: aprovação registrada antes de qualquer dado real.
 - Verificação documental passou; nenhum padrão de segredo detectado.
-- Dados reais permanecem bloqueados até a ativação dos controles técnicos da F1-T02.
+- Dados reais continuam bloqueados até a ativação dos controles técnicos da F1-T02.
 - Aprendizado candidato registrado em `06_notas/aprendizado-contínuo/AP-2026-09-18-1743-separar-aprovacao-de-liberacao.md`.
