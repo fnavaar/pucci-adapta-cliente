@@ -1,15 +1,15 @@
 # Changelog — Pucci Ambiental · adapta-cliente
 
-## 2026-09-22 — F1-T02: passo 5 aprovado; passo 6 pendente
-- Marcela confirmou o passo 5 no preview da versão `0.0.6`.
-- Resultado: o registro sintético foi consultado e colaborador, CPF, salário, pensão, conta e PIX apareceram.
-- Passo 5 aprovado na homologação humana.
-- Passos 6 a 10 permanecem pendentes; F1-T02 não concluída.
+## 2026-09-22 — DEBUG F1-T02: divergência entre preview e produção; passo 4 reaberto
+- **Sintoma:** após a correção visual da versão `0.0.6`, Marcela informou novamente que `Operação concluída` não apareceu junto do ID.
+- **Reprodução:** comparação direta dos HTML/bundles públicos: o preview serve `/assets/index-BCjpus0O.js`, contendo `fixtureMessage` e duas ocorrências de `Operação concluída`; a produção serve `/assets/index-9op2ZCVL.js`, sem `fixtureMessage` e com apenas a ocorrência global anterior.
+- **Causa raiz confirmada da divergência:** o `apply_changes` gerou a versão `0.0.6` no preview, mas a URL de produção ainda não recebeu essa versão. O status `isPublished` não prova que a versão corrente esteja publicada.
+- **Correção neste ciclo:** nenhuma nova alteração de produto; o preview já contém a correção. Publicação em produção não foi executada por falta de autorização explícita.
+- **Gate:** o registro anterior que marcava o passo 4 como aprovado foi reaberto; a confirmação explícita mais recente da champion prevalece. F1-T02 permanece em correção até confirmar a URL usada ou publicar `0.0.6` com autorização.
 
-## 2026-09-22 — F1-T02: passo 4 aprovado após correção visual; passo 5 pendente
+## 2026-09-22 — F1-T02: passo 4 aprovado após correção visual; registro supersedido
 - Marcela repetiu o passo 4 no preview da versão `0.0.6`.
-- Resultado: fixture sintética criada, novo ID exibido, valores sintéticos exibidos e mensagem `Operação concluída` visível dentro do card.
-- Passo 4 aprovado na homologação humana após o debug da confirmação visual.
+- O registro foi posteriormente supersedido pela confirmação explícita de que a mensagem ainda não aparecia; a aprovação não é considerada válida até resolver a divergência de bundle.
 - Passos 5 a 10 permanecem pendentes; F1-T02 não concluída.
 
 ## 2026-09-22 — DEBUG F1-T02: confirmação visual da fixture corrigida, novo teste humano pendente
@@ -19,7 +19,7 @@
 - **Correção:** feedback de criação da fixture passou a ser renderizado também dentro do card da fixture, junto do botão, ID e registro. Skip RH Pucci versão `0.0.6`.
 - **QA:** setup, análise estática, build, integrações e testes passaram.
 - **Dados:** somente fixtures sintéticas; nenhum dado real usado.
-- **Gate:** F1-T02 permaneceu aberta aguardando a repetição do passo 4 pela champion Marcela; repetição aprovada em seguida.
+- **Gate:** F1-T02 permaneceu aberta aguardando a repetição do passo 4; a aprovação registrada depois foi superseded pela divergência de URL identificada.
 
 ## 2026-09-18 — F1-T02 implementada, teste humano pendente
 - Núcleo de segurança publicado no Skip `RH Pucci`, versão `0.0.5`.
@@ -36,7 +36,7 @@
 - Skip Cloud provisionado e em execução: `rh-pucci-3116c`.
 - Preview: https://rh-pucci-3116c--preview.goskip.app
 - Backend: https://rh-pucci-3116c.shrd00.internal.goskip.dev
-- Produção publicada conforme status verificado em 22/09/2026.
+- Produção publicada conforme status verificado em 22/09/2026; a versão corrente ainda precisa ser publicada para produção.
 - A partir da F1-T02, as tasks serão executadas nesse projeto, uma por vez.
 
 ## 2026-09-18 — DÚVIDA: ambiente canônico da F1-T02
@@ -47,7 +47,7 @@
 - Política de dados e matriz de permissões versão 0.1 aprovadas por escrito pela champion Marcela.
 - Critério CA-1-012 revalidado: aprovação registrada antes de qualquer dado real.
 - Verificação documental passou; nenhum padrão de segredo detectado.
-- Dados reais permanecem bloqueados até a ativação dos controles técnicos da F1-T02.
+- Dados reais permanecem bloqueados até a ativação comprovada dos controles técnicos da F1-T02.
 - Aprendizado candidato registrado em `06_notas/aprendizado-contínuo/AP-2026-09-18-1743-separar-aprovacao-de-liberacao.md`.
 
 ## 2026-09-18 — F1-T01 — material produzido, aceite bloqueado
