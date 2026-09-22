@@ -1,5 +1,16 @@
 # Changelog — Pucci Ambiental · adapta-cliente
 
+## 2026-09-22 — Marcela · Task F1-T02 concluída: controle de acesso, auditoria e t0/t1 homologados
+- Revalidação final independente executada após a aprovação humana do passo 10.
+- **CA-1-010 PASSOU:** papéis sem permissão foram negados ao acessar registro sensível (`none`/`homologator` com HTTP 404); a tentativa de alteração de PIX por `analyst` foi negada com HTTP 403.
+- **CA-1-011 PASSOU:** leitura/escrita de campos sensíveis gerou trilha append-only consultável com ator, ação, registro e campos; edição/exclusão de `audit_logs` foi negada.
+- **CA-1-012 PASSOU:** política e matriz foram aprovadas por escrito antes de qualquer dado real; somente fixtures sintéticas foram usadas.
+- **CA-1-013 PASSOU:** `t0` foi definido automaticamente ao abrir a competência e `t1` ao encerrar; após recarga ambos persistiram; reabertura e alteração de `t0`/`t1` foram recusadas.
+- QA da versão `0.0.6`: setup, análise estática, build, integrações e testes passaram.
+- Homologação humana dos passos 3 a 10 passou no preview; nenhum dado real foi usado.
+- A F1-T02 foi marcada concluída na árvore canônica `04_fase-atual/fase.md`; o percentual da fase passou para 2/8 (25%).
+- A produção ainda serve bundle frontend anterior ao `0.0.6`; isso permanece como pendência operacional e não foi apresentado como publicação concluída.
+
 ## 2026-09-22 — F1-T02: passo 9 aprovado; passo 10 pendente
 - Marcela confirmou a parte final do passo 9 no preview.
 - Resultado: após recarregar, a competência continuou `closed` com o mesmo t0 e t1, e a trilha de auditoria permaneceu disponível ao clicar em `Atualizar trilha`.
@@ -10,7 +21,7 @@
 - Marcela confirmou o passo 8 no preview.
 - Resultado: competência sintética encerrada com status `closed`, t1 preenchido automaticamente e t0 preservado.
 - Passo 8 aprovado na homologação humana.
-- Passos 9 e 10 permanecem pendentes; F1-T02 não concluída.
+- Passos 8 e 9 permanecem pendentes; F1-T02 não concluída.
 
 ## 2026-09-22 — F1-T02: passo 7 aprovado; passo 8 pendente
 - Marcela confirmou o passo 7 no preview.

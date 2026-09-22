@@ -2,7 +2,8 @@
 
 **Data da implementação:** 2026-09-18  
 **Data dos debugs visuais:** 2026-09-22  
-**Ambiente:** Skip `RH Pucci` · projectId `59746` · versão implementada `0.0.5`; correção visual na versão `0.0.6` no preview  
+**Data da homologação final:** 2026-09-22  
+**Ambiente:** Skip `RH Pucci` · projectId `59746` · versão implementada `0.0.5`; correção visual e homologação na versão `0.0.6` do preview  
 **SPEC:** `04-fase-atual/specs/spec-1-003.md`  
 **Dados:** somente fixtures sintéticas; nenhum dado real usado.
 
@@ -45,6 +46,8 @@
 | Cliente tentando reabrir competência encerrada/alterar t0/t1 | NEGADO — HTTP 400 |
 | Auditoria de leitura/escrita | ator, ação, registro e campos registrados |
 | Logs de hook após as provas | nenhum erro de hook registrado |
+| Bundle do preview | contém `fixtureMessage` e confirmação inline; não contém as senhas fornecidas |
+| Busca de credenciais no repositório | nenhuma ocorrência das senhas fornecidas |
 | Teste humano do passo 3 | OK — papel Champion / Gestora confirmado |
 | Teste humano do passo 4 | OK — fixture criada, ID e valores sintéticos exibidos; mensagem `Operação concluída` confirmada no card |
 | Teste humano do passo 5 | OK — registro consultado; colaborador, CPF, salário, pensão, conta e PIX sintéticos exibidos |
@@ -52,6 +55,16 @@
 | Teste humano do passo 7 | OK — competência aberta; status `open`, t0 automático preenchido e t1 vazio |
 | Teste humano do passo 8 | OK — competência encerrada; status `closed`, t1 automático preenchido e t0 preservado |
 | Teste humano do passo 9 | OK — após recarga, competência permaneceu `closed` com o mesmo t0 e t1; trilha continuou disponível |
+| Teste humano do passo 10 | OK — reabertura recusada; alterações de t0 e t1 recusadas; competência permaneceu encerrada |
+
+## Critérios de aceite revalidados
+
+| Critério | Evidência final | Resultado |
+|---|---|---|
+| CA-1-010 | `none`/`homologator` receberam HTTP 404; `analyst` não pôde alterar PIX (HTTP 403); tentativa de autoelevação permaneceu no papel original | PASSOU |
+| CA-1-011 | leitura/escrita gerou logs append-only com ator, ação, registro e campos; edição/exclusão de logs recusada | PASSOU |
+| CA-1-012 | política e matriz versão 0.1 aprovadas por escrito antes de qualquer dado real; todo o roteiro usou fixtures | PASSOU |
+| CA-1-013 | t0/t1 definidos pelo backend, persistidos após recarga e protegidos contra reabertura/alteração | PASSOU |
 
 ## Debug Summary — confirmação visual
 
@@ -60,10 +73,10 @@
 **Causa raiz:** o feedback de sucesso era renderizado apenas no topo da página, fora do card da ação.  
 **Correção:** adicionar confirmação `Operação concluída` dentro do card da fixture, junto do resultado criado; versão `0.0.6` no preview.  
 **Verificação automática:** QA completo da versão `0.0.6` passou.  
-**Gate atual:** passos 3 a 9 aprovados; aguardando passo 10.
+**Gate final:** task concluída após homologação humana dos passos 3 a 10.
 
 ## Limitações conhecidas
 
-- A interface do template não possui suíte E2E; a prova de segurança foi executada diretamente contra o backend com contas e registros sintéticos.
-- A produção está servindo versão anterior ao `0.0.6`; o teste humano deve usar o preview até a publicação autorizada.
-- A task ainda não está concluída: falta a homologação humana do passo 10.
+- A interface do template não possui suíte E2E; as provas de segurança foram executadas diretamente contra o backend com contas e registros sintéticos.
+- A produção ainda serve bundle frontend anterior ao `0.0.6`; a homologação foi feita no preview e nenhuma publicação produtiva foi alegada.
+- Nenhum dado real foi usado ou liberado durante este ciclo.
