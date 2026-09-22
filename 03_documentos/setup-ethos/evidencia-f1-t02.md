@@ -45,9 +45,10 @@
 | Cliente tentando reabrir competência encerrada/alterar t0/t1 | NEGADO — HTTP 400 |
 | Auditoria de leitura/escrita | ator, ação, registro e campos registrados |
 | Logs de hook após as provas | nenhum erro de hook registrado |
-| Primeiro teste humano do passo 3 | OK — papel Champion / Gestora confirmado |
-| Primeiro teste humano do passo 4 | parcial — fixture criada, ID e valores sintéticos exibidos; confirmação visual não percebida |
-| Repetição do passo 4 após a versão 0.0.6 | não confirmada — Marcela informou novamente que a mensagem não apareceu; auditoria de bundles encontrou produção desatualizada |
+| Teste humano do passo 3 | OK — papel Champion / Gestora confirmado |
+| Teste humano do passo 4 | OK — fixture criada, ID e valores sintéticos exibidos; mensagem `Operação concluída` confirmada no card |
+| Teste humano do passo 5 | OK — registro consultado; colaborador, CPF, salário, pensão, conta e PIX sintéticos exibidos |
+| Teste humano do passo 6 | OK — trilha exibida com ator, ação, registro e campos |
 
 ## Debug Summary — confirmação visual
 
@@ -56,17 +57,10 @@
 **Causa raiz:** o feedback de sucesso era renderizado apenas no topo da página, fora do card da ação.  
 **Correção:** adicionar confirmação `Operação concluída` dentro do card da fixture, junto do resultado criado; versão `0.0.6` no preview.  
 **Verificação automática:** QA completo da versão `0.0.6` passou.  
-
-## Debug Summary — divergência de ambiente
-
-**Task e problema:** F1-T02; a versão testada pela champion não exibiu a correção esperada.  
-**Reprodução:** o preview serve bundle contendo `fixtureMessage` e a mensagem inline; a produção serve bundle sem `fixtureMessage`, portanto mantém somente a mensagem global.  
-**Causa raiz confirmada da divergência:** a versão `0.0.6` foi aplicada ao preview, mas não foi publicada na URL de produção.  
-**Correção neste ciclo:** nenhuma nova alteração de produto; publicação em produção não executada sem autorização explícita.  
-**Gate atual:** em correção; confirmar URL do teste ou autorizar publicação da versão `0.0.6`.
+**Gate atual:** passos 3 a 6 aprovados; aguardando passos 7 a 10.
 
 ## Limitações conhecidas
 
 - A interface do template não possui suíte E2E; a prova de segurança foi executada diretamente contra o backend com contas e registros sintéticos.
 - A produção está servindo versão anterior ao `0.0.6`; o teste humano deve usar o preview até a publicação autorizada.
-- A task ainda não está concluída: falta confirmar o passo 4 no ambiente correto e executar os passos 5 a 10.
+- A task ainda não está concluída: falta a homologação humana dos passos 7 a 10.
