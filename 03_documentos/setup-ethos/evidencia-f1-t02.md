@@ -51,7 +51,7 @@
 | Teste humano do passo 6 | OK — trilha exibida com ator, ação, registro e campos |
 | Teste humano do passo 7 | OK — competência aberta; status `open`, t0 automático preenchido e t1 vazio |
 | Teste humano do passo 8 | OK — competência encerrada; status `closed`, t1 automático preenchido e t0 preservado |
-| Teste humano do passo 9 — persistência | PARCIALMENTE OK — após recarga, competência permaneceu `closed`, com t0 e t1 preservados; trilha após recarga ainda pendente |
+| Teste humano do passo 9 | OK — após recarga, competência permaneceu `closed` com o mesmo t0 e t1; trilha continuou disponível |
 
 ## Debug Summary — confirmação visual
 
@@ -60,10 +60,10 @@
 **Causa raiz:** o feedback de sucesso era renderizado apenas no topo da página, fora do card da ação.  
 **Correção:** adicionar confirmação `Operação concluída` dentro do card da fixture, junto do resultado criado; versão `0.0.6` no preview.  
 **Verificação automática:** QA completo da versão `0.0.6` passou.  
-**Gate atual:** persistência do passo 9 aprovada; atualização da trilha e passo 10 ainda pendentes.
+**Gate atual:** passos 3 a 9 aprovados; aguardando passo 10.
 
 ## Limitações conhecidas
 
 - A interface do template não possui suíte E2E; a prova de segurança foi executada diretamente contra o backend com contas e registros sintéticos.
 - A produção está servindo versão anterior ao `0.0.6`; o teste humano deve usar o preview até a publicação autorizada.
-- A task ainda não está concluída: falta confirmar a trilha após recarga e executar o passo 10.
+- A task ainda não está concluída: falta a homologação humana do passo 10.
