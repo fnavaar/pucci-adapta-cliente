@@ -48,6 +48,7 @@
 | Primeiro teste humano do passo 3 | OK — papel Champion / Gestora confirmado |
 | Primeiro teste humano do passo 4 | parcial — fixture criada, ID e valores sintéticos exibidos; confirmação visual não percebida |
 | Repetição do teste humano do passo 4 após a versão 0.0.6 | OK — fixture criada, ID e valores sintéticos exibidos; mensagem "Operação concluída" visível dentro do card |
+| Teste humano do passo 5 | OK — registro consultado; colaborador, CPF, salário, pensão, conta e PIX sintéticos exibidos |
 
 ## Debug Summary
 
@@ -56,10 +57,10 @@
 **Causa raiz:** o feedback de sucesso era renderizado apenas no topo da página, fora do card da ação.  
 **Correção:** adicionar confirmação `Operação concluída` dentro do card da fixture, junto do resultado criado; versão `0.0.6`.  
 **Verificação automática:** QA completo da versão `0.0.6` passou.  
-**Gate atual:** passo 4 aprovado; aguardando passos 5 a 10 do teste humano.
+**Gate atual:** passos 4 e 5 aprovados; aguardando passos 6 a 10 do teste humano.
 
 ## Limitações conhecidas
 
 - A interface do template não possui suíte E2E; a prova de segurança foi executada diretamente contra o backend com contas e registros sintéticos.
 - A produção está publicada conforme status verificado em 22/09/2026; o teste humano desta task deve usar o preview.
-- A task ainda não está concluída: falta a homologação humana dos passos 5 a 10.
+- A task ainda não está concluída: falta a homologação humana dos passos 6 a 10.

@@ -1,5 +1,11 @@
 # Changelog — Pucci Ambiental · adapta-cliente
 
+## 2026-09-22 — F1-T02: passo 5 aprovado; passo 6 pendente
+- Marcela confirmou o passo 5 no preview da versão `0.0.6`.
+- Resultado: o registro sintético foi consultado e colaborador, CPF, salário, pensão, conta e PIX apareceram.
+- Passo 5 aprovado na homologação humana.
+- Passos 6 a 10 permanecem pendentes; F1-T02 não concluída.
+
 ## 2026-09-22 — F1-T02: passo 4 aprovado após correção visual; passo 5 pendente
 - Marcela repetiu o passo 4 no preview da versão `0.0.6`.
 - Resultado: fixture sintética criada, novo ID exibido, valores sintéticos exibidos e mensagem `Operação concluída` visível dentro do card.
@@ -41,7 +47,7 @@
 - Política de dados e matriz de permissões versão 0.1 aprovadas por escrito pela champion Marcela.
 - Critério CA-1-012 revalidado: aprovação registrada antes de qualquer dado real.
 - Verificação documental passou; nenhum padrão de segredo detectado.
-- Dados reais permanecem bloqueados até a ativação comprovada dos controles técnicos da F1-T02.
+- Dados reais permanecem bloqueados até a ativação dos controles técnicos da F1-T02.
 - Aprendizado candidato registrado em `06_notas/aprendizado-contínuo/AP-2026-09-18-1743-separar-aprovacao-de-liberacao.md`.
 
 ## 2026-09-18 — F1-T01 — material produzido, aceite bloqueado
