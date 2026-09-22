@@ -1,5 +1,11 @@
 # Changelog — Pucci Ambiental · adapta-cliente
 
+## 2026-09-22 — F1-T02: persistência do passo 9 confirmada; trilha pendente
+- Marcela recarregou o preview e carregou novamente as competências.
+- Resultado: a competência continua `closed`, com o mesmo `t0` e o mesmo `t1`.
+- Parte de persistência do passo 9 aprovada; falta atualizar a trilha após a recarga.
+- Passo 10 e conclusão da F1-T02 continuam pendentes.
+
 ## 2026-09-22 — F1-T02: passo 8 aprovado; passo 9 pendente
 - Marcela confirmou o passo 8 no preview.
 - Resultado: competência sintética encerrada com status `closed`, t1 preenchido automaticamente e t0 preservado.
@@ -58,5 +64,5 @@
 - Política de dados e matriz de permissões versão 0.1 aprovadas por escrito pela champion Marcela.
 - Critério CA-1-012 revalidado: aprovação registrada antes de qualquer dado real.
 - Verificação documental passou; nenhum padrão de segredo detectado.
-- Dados reais continuam bloqueados até a ativação comprovada dos controles técnicos da F1-T02.
+- Dados reais continuam bloqueados até a ativação dos controles técnicos da F1-T02.
 - Aprendizado candidato registrado em `06_notas/aprendizado-contínuo/AP-2026-09-18-1743-separar-aprovacao-de-liberacao.md`.
