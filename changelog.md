@@ -1,5 +1,13 @@
 # Changelog — Pucci Ambiental · adapta-cliente
 
+## 2026-09-23 — F1-T03: prova read-only do Flipchart aprovada parcialmente
+- Marcela executou o teste humano no preview da versão `0.0.8` e informou: “funcionou”.
+- Logs do Skip confirmaram a chamada autenticada `GET /backend/v1/flipchart/consulta?dataInicio=2026-08-01&dataFim=2026-08-31` com HTTP 200; a tentativa sem sessão respondeu HTTP 401.
+- A prova exibiu o retorno estruturado do Flipchart com formato JSON, via, granularidade, campos e fontes.
+- Nenhum token foi exposto e nenhuma resposta com registros foi copiada para o repositório.
+- Subprovas Stelanto e Flipchart aprovadas; F1-T03 permanece aberta somente pela amostra do retorno da contabilidade.
+- Próximo passo: obter a cadeia/amostra real devolvida pela contabilidade por e-mail, com anexos necessários e dados mascarados quando aplicável; depois consolidar o relatório da F1-T03.
+
 ## 2026-09-23 — F1-T03: prova read-only do Stelanto aprovada parcialmente
 - Marcela executou o teste humano no preview da versão `0.0.7` e informou: “funcionou”.
 - Logs do Skip confirmaram duas chamadas autenticadas `POST /backend/v1/stelanto/mirror-view` com HTTP 200; a chamada sem sessão anterior respondeu HTTP 401.
