@@ -2,12 +2,12 @@
 
 - task_id: F1-T03
 - champion: Marcela
-- spec: 04-fase-atual/specs/spec-1-004.md
-- etapa: aguardando_teste_humano
+- spec: 04_fase-atual/specs/spec-1-004.md
+- etapa: concluida
 - autorizacao_implementacao: confirmada — subprovas Stelanto (v0.0.7) e Flipchart (v0.0.8) implementadas após autorização explícita da champion
-- teste_humano: pendente — Stelanto e Flipchart aprovados por Marcela (HTTP 200 nos logs); cadeia contábil completa recebida em 24/09 (2 e-mails de entrada + retorno com 6 PDFs analisados); falta o aceite do relatório consolidado
-- verificacao_automatica: passou — QA v0.0.8 (`e2df256`) completo; relatório de prova consolidado em `03_documentos/provas/relatorio-prova-f1-t03.md` com recomendação de formato (CA-1-017) e rastreabilidade entrada→retorno confirmada (eventos 270/278/251/258 e contratos de empréstimo reaparecem nos PDFs)
-- aprendizado: pendente
-- ultima_acao: retorno da contabilidade recebido e analisado (6 PDFs, formato exclusivamente PDF, granularidade por colaborador/obra/empresa); relatório de prova consolidado com achados estruturais (NF como imagem, rótulos inconsistentes, retorno não estruturado) e recomendação de importação
-- proxima_acao: aceite da champion no relatório de prova; após aceite, concluir a F1-T03 (fase.md, STATUS, changelog)
-- atualizado_em: 2026-09-24T08:20:00-03:00
+- teste_humano: aprovado — 2026-09-24T08:16:00-03:00 — “Sim, a cadeia registrada representa o processo real. Relatório está sim aprovado.”; Stelanto e Flipchart já haviam sido aprovados por Marcela com HTTP 200 nos logs
+- verificacao_automatica: passou — revalidação independente da SPEC-1-004, relatório, evidências e logs; CA-1-014 e CA-1-017 comprovados; Stelanto e Flipchart autenticados HTTP 200 e bloqueados sem sessão HTTP 401; nenhum segredo ou dado pessoal publicado
+- aprendizado: capturado:06_notas/aprendizado-contínuo/AP-2026-09-24-0820-retorno-contabil-nao-estruturado.md
+- ultima_acao: F1-T03 concluída; relatório aprovado, fase marcada e STATUS atualizado para 3/8 tasks (37,5%); aprendizado registrado no controle contínuo
+- proxima_acao: iniciar a análise da F1-T04 em novo pedido explícito da champion; não implementar nem selecionar task automaticamente
+- atualizado_em: 2026-09-24T08:20:04-03:00
