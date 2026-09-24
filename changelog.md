@@ -1,5 +1,11 @@
 # Changelog — Pucci Ambiental · adapta-cliente
 
+## 2026-09-24 · [Marcela] · DEBUG task F1-T04: página em branco → causa raiz ReferenceError por funções ausentes → corrigido
+- O card de competência chamava `formatMinutes` e `getElapsedMinutes`, mas as funções não estavam presentes em `src/pages/Index.tsx`; a exceção de runtime deixava a tela em branco quando havia linhas para renderizar.
+- Correção mínima aplicada no mesmo escopo da F1-T04; versão Skip `0.0.12` (`d36e32a`).
+- QA completo passou: setup, análise estática, build, integrações e testes. Preview abre sem autenticação; logs não registram erros novos de hooks.
+- A senha sintética não estava disponível para reproduzir o fluxo autenticado nesta sessão; não foi inventada nem foi usada credencial real. Novo teste humano permanece obrigatório.
+
 ## 2026-09-24 — F1-T03 concluída: prova técnica de exportação e retorno contábil
 - Marcela confirmou: “Sim, a cadeia registrada representa o processo real. Relatório está sim aprovado.”
 - Relatório aprovado em `03_documentos/provas/relatorio-prova-f1-t03.md`, com dados pessoais omitidos.
