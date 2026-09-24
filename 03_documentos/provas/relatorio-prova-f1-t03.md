@@ -53,13 +53,13 @@ E-mail com resposta "Segue em anexo a folha para conferência" + ZIP com **6 PDF
 - **Conferência atual:** manual, PDF a PDF; divergências → e-mail solicitando ajuste (processo relatado pela champion).
 
 ### Achados estruturais do processo atual
-1. **NF chega como imagem no corpo do e-mail** — dado não estruturado, inviável importar sem extração manual (impacta F1-T06).
+1. **NF chega como imagem no corpo do e-mail** — dado não estruturado, inviável importar sem extração manual (impacta F1-T07).
 2. **Rótulos de departamento inconsistentes** na TAB III (mesmo código grafado de formas diferentes, inclusive com erro de grafia) e **unidades mistas** (dias × "7h"/"28h") na mesma coluna — força conferência manual e impede importação direta sem normalização.
 3. **Retorno 100% em PDF** — a contabilidade não devolve dado estruturado; toda conferência detalhada é manual.
 
 ## 4. Recomendação de formato para a importação (CA-1-017)
 
-Para a F1-T05 (importar alocação e validar rateio), recomendado:
+Para a **F1-T06** (importar alocação e validar rateio), recomendado:
 
 1. **Alocação/rateio:** o RH Pucci deve **gerar nativamente** a TAB III (colaborador × obra × dias), eliminando a planilha digitada. A aba "Importação" da planilha atual (eventos 270/278/251/258) já demonstra o dicionário de eventos que o sistema da contabilidade aceita — adotá-lo como dicionário oficial no RH Pucci.
 2. **Normalização obrigatória:** padronizar rótulos de departamento (por código, não por texto) e exigir unidade única (dias) por linha de alocação; horas devem ser convertidas na origem.
@@ -68,9 +68,11 @@ Para a F1-T05 (importar alocação e validar rateio), recomendado:
 
 ## 5. Pendências relacionadas (fora do escopo desta task)
 
-- **B-FISC-01:** retenção de 11% praticada na entrada; confirmação por escrito ainda pendente (F1-T06).
+- **B-FISC-01:** retenção de 11% praticada na entrada; confirmação por escrito ainda pendente (F1-T07).
 - **CA-1-015/CA-1-016** (baseline de lead time e decisão Stelanto): pertencem à F1-T04.
 
 ## 6. Aceite
 
-- [ ] Champion confirma que a cadeia registrada representa o processo real e aprova o relatório.
+- [x] Champion confirma que a cadeia registrada representa o processo real e aprova o relatório.
+
+**Aceite registrado em 2026-09-24:** Marcela confirmou: “Sim, a cadeia registrada representa o processo real. Relatório está sim aprovado.”
