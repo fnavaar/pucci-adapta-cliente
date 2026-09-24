@@ -1,5 +1,14 @@
 # Changelog — Pucci Ambiental · adapta-cliente
 
+## 2026-09-24 · [Marcela] · Task F1-T04 concluída: instrumentação de baseline homologada
+- Marcela executou o teste humano da versão `0.0.12` e confirmou: “Fiz o teste de tudo, pode continuar”.
+- Instrumentação homologada: t0 automático na abertura, t1 automático no encerramento, touch time obrigatório em minutos, cálculo do lead time total (`t1 - t0`) e bloqueio de reabertura/alteração após fechamento.
+- Migration `0002_f1_t04_touch_time` aplicada no Skip Cloud; QA `0.0.12` (`d36e32a`) passou em setup, análise estática, build, integrações e testes.
+- Relatório: `03_documentos/provas/relatorio-baseline-f1-t04.md`.
+- **CA-1-015:** pendência explícita — ainda não houve fechamento real medido; não foi inventado baseline operacional.
+- **CA-1-016:** pendência explícita — Stelanto permanece fonte oficial neste ciclo; decisão integrar/substituir segue aberta até existir baseline real.
+- Próximo passo: medir o primeiro fechamento real autorizado e então registrar o baseline e a decisão sobre o Stelanto.
+
 ## 2026-09-24 · [Marcela] · DEBUG task F1-T04: página em branco → causa raiz ReferenceError por funções ausentes → corrigido
 - O card de competência chamava `formatMinutes` e `getElapsedMinutes`, mas as funções não estavam presentes em `src/pages/Index.tsx`; a exceção de runtime deixava a tela em branco quando havia linhas para renderizar.
 - Correção mínima aplicada no mesmo escopo da F1-T04; versão Skip `0.0.12` (`d36e32a`).
