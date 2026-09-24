@@ -1,5 +1,14 @@
 # Changelog — Pucci Ambiental · adapta-cliente
 
+## 2026-09-24 — F1-T03 concluída: prova técnica de exportação e retorno contábil
+- Marcela confirmou: “Sim, a cadeia registrada representa o processo real. Relatório está sim aprovado.”
+- Relatório aprovado em `03_documentos/provas/relatorio-prova-f1-t03.md`, com dados pessoais omitidos.
+- CA-1-014 e CA-1-017 comprovados: Stelanto e Flipchart demonstraram retorno estruturado por rotas read-only; a cadeia real da contabilidade foi registrada com o e-mail de resposta e seis PDFs da competência 08/2026.
+- Logs do Skip confirmaram Stelanto `POST /backend/v1/stelanto/mirror-view` autenticado HTTP 200 e sem sessão HTTP 401; Flipchart `GET /backend/v1/flipchart/consulta` autenticado HTTP 200 e sem sessão HTTP 401.
+- Rastreabilidade entrada→retorno confirmada para os eventos contábeis; recomendação registrada: entrada estruturada na origem e conferência por totais quando o retorno da contabilidade for exclusivamente PDF, com fallback CSV/XLSX ou extração assistida.
+- Nenhum token, credencial ou dado pessoal foi publicado no repositório.
+- Próximo passo: iniciar a análise da F1-T04 em novo ciclo solicitado pela champion; CA-1-015 e CA-1-016 continuam fora do fechamento da F1-T03.
+
 ## 2026-09-23 — F1-T03: prova read-only do Flipchart aprovada parcialmente
 - Marcela executou o teste humano no preview da versão `0.0.8` e informou: “funcionou”.
 - Logs do Skip confirmaram a chamada autenticada `GET /backend/v1/flipchart/consulta?dataInicio=2026-08-01&dataFim=2026-08-31` com HTTP 200; a tentativa sem sessão respondeu HTTP 401.
