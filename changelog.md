@@ -1,5 +1,15 @@
 # Changelog — Pucci Ambiental · adapta-cliente
 
+## 2026-10-09 · [Marcela] · DEBUG F1-T05: integração do cadastro mestre no preview
+- Retomada da task ativa sem abrir outra frente. Diagnóstico da falha de migration: a `0004` mínima falhou enquanto os novos hooks de cadastro mestre estavam no working tree e passou após remover esses hooks; o Skip não expôs stack trace que isolasse um arquivo específico. Regra aplicada: criar schema em migrations ordenadas; instalar hooks que referenciam as coleções depois do schema.
+- Migrations `0004` a `0009` aplicadas no Skip Cloud: departamentos, colaboradores, tomadores, projetos e contratos; relações colaborador→departamento, projeto→tomador, contrato→projeto/tomador; fixtures explicitamente sintéticas e índices únicos.
+- RLS verificado: departamentos/colaboradores legíveis por Champion, Analista e Financeiro; escrita de RH restrita a Champion/Analista. Projetos agora são graváveis por Champion/Analista; Financeiro mantém somente leitura. Tomadores/contratos seguem escopo fiscal da matriz. Auditoria append-only registra ator, ação, coleção, id e nomes de campos, nunca valores pessoais.
+- Novo layout: login somente PocketBase, sem credencial demo nem fallback local; telas de colaboradores e setores consultam backend; nova tela `/cadastros` consulta tomadores, projetos/obras e contratos; `/fechamento` mantém o módulo F1-T04 protegido.
+- QA Skip `0.0.24` (`e8e9427`): setup, análise estática, build e integrações passaram. O estágio de testes reportou `ran:false`; testes automatizados não foram executados. Logs recentes mostram leitura de `departments` e `employees` com HTTP 200; sem erros no filtro de logs de hooks consultado.
+- Preview atualizado para `0.0.24`; produção não publicada, `lastPublishedRef=2b24bd5`. F1-T04 preservada. Nenhum dado real foi inserido.
+- F1-T05 aguarda teste humano da Champion; progresso da fase permanece 4/8 (50%) até o aceite.
+- Debug: `06_notas/debug/debug-2026-10-09-f1-t05-migration-hooks.md`. Aprendizado: `06_notas/aprendizado-contínuo/AP-2026-10-09-1621-ordenar-schema-e-hooks-skip.md`.
+
 ## 2026-09-24 · [Marcela] · Task F1-T04 concluída: instrumentação de baseline homologada
 - Marcela executou o teste humano da versão `0.0.12` e confirmou: “Fiz o teste de tudo, pode continuar”.
 - Instrumentação homologada: t0 automático na abertura, t1 automático no encerramento, touch time obrigatório em minutos, cálculo do lead time total (`t1 - t0`) e bloqueio de reabertura/alteração após fechamento.
@@ -40,14 +50,14 @@
 - Subprova Stelanto aprovada; F1-T03 permanece aberta porque ainda faltam a prova do Flipchart e a amostra do retorno da contabilidade.
 - Próximo passo: obter contrato técnico do Flipchart e implementar a prova read-only correspondente; coletar a amostra real devolvida pela contabilidade.
 
-## 2026-09-22 — F1-T03: fluxo da contabilidade por e-mail esclarecido
+## 2026-09-22 · F1-T03: fluxo da contabilidade por e-mail esclarecido
 - Marcela informou que a Pucci não tem acesso ao sistema da contabilidade.
 - O fluxo real é: a Pucci envia informações por e-mail para a contabilidade; a contabilidade devolve informações por e-mail para a confecção da folha.
 - A evidência da contabilidade na F1-T03 será a cadeia real de e-mails e os anexos necessários, sem exigir acesso ao sistema contábil.
 - Acesso read-only ao Stelanto e ao Campos Solo–Flipchart continua pendente.
 - F1-T03 permanece em `aguardando_autorizacao`; nenhum produto foi alterado e nenhuma prova foi executada.
 
-## 2026-09-22 — F1-T03 selecionada; análise concluída, autorização pendente
+## 2026-09-22 · F1-T03 selecionada; análise concluída, autorização pendente
 - Próxima task elegível da Fase 1: **Provar como o Stelanto e o Flipchart exportam seus dados**.
 - SPEC-1-004 · critérios CA-1-014 e CA-1-017 · Leva 2.
 - Nenhum arquivo de produto foi alterado; nenhuma exportação foi executada.
