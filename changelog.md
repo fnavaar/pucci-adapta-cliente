@@ -5,8 +5,9 @@
 - Migrations `0004` a `0009` aplicadas no Skip Cloud: departamentos, colaboradores, tomadores, projetos e contratos; relações colaborador→departamento, projeto→tomador, contrato→projeto/tomador; fixtures explicitamente sintéticas e índices únicos.
 - RLS verificado: departamentos/colaboradores legíveis por Champion, Analista e Financeiro; escrita de RH restrita a Champion/Analista. Projetos agora são graváveis por Champion/Analista; Financeiro mantém somente leitura. Tomadores/contratos seguem escopo fiscal da matriz. Auditoria append-only registra ator, ação, coleção, id e nomes de campos, nunca valores pessoais.
 - Novo layout: login somente PocketBase, sem credencial demo nem fallback local; telas de colaboradores e setores consultam backend; nova tela `/cadastros` consulta tomadores, projetos/obras e contratos; `/fechamento` mantém o módulo F1-T04 protegido.
-- QA Skip `0.0.24` (`e8e9427`): setup, análise estática, build e integrações passaram. O estágio de testes reportou `ran:false`; testes automatizados não foram executados. Logs recentes mostram leitura de `departments` e `employees` com HTTP 200; sem erros no filtro de logs de hooks consultado.
-- Preview atualizado para `0.0.24`; produção não publicada, `lastPublishedRef=2b24bd5`. F1-T04 preservada. Nenhum dado real foi inserido.
+- Hooks de auditoria de leitura corrigidos para chamar `e.requestInfo()` como método documentado. Logs não registraram erros de hooks no filtro consultado; execução real dos novos hooks ainda requer verificação humana autenticada.
+- QA Skip `0.0.25` (`1279dde`): setup, análise estática, build e integrações passaram. O estágio de testes reportou `ran:false`; testes automatizados não foram executados. Logs confirmam leituras autenticadas de `departments` e `employees` HTTP 200; ainda falta a Champion validar as telas de tomadores/projetos/contratos.
+- Preview atualizado para `0.0.25`; produção não publicada, `lastPublishedRef=2b24bd5`. F1-T04 preservada. Nenhum dado real foi inserido.
 - F1-T05 aguarda teste humano da Champion; progresso da fase permanece 4/8 (50%) até o aceite.
 - Debug: `06_notas/debug/debug-2026-10-09-f1-t05-migration-hooks.md`. Aprendizado: `06_notas/aprendizado-contínuo/AP-2026-10-09-1621-ordenar-schema-e-hooks-skip.md`.
 
