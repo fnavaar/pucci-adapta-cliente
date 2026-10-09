@@ -1,0 +1,9 @@
+# Debug Summary — F1-T05 migration e hooks do cadastro mestre
+
+- **Task/SPEC:** F1-T05 · `04_fase-atual/specs/spec-1-002.md`.
+- **Sintoma:** Skip abortou repetidamente ao aplicar `0004_f1_t05_master_data.js`; a 1ª versão tentava criar cinco coleções, relações, seeds e vários hooks no mesmo ciclo.
+- **Reprodução:** versão com schema amplo falhou; versão reduzida para apenas `departments` também falhou enquanto os hooks novos de cadastro mestre estavam no working tree. Após retirar esses hooks e reaplicar o mesmo schema mínimo, QA `0.0.17` (`8fc68cb`) passou na integração e `departments` foi criada no backend.
+- **Causa raiz:** interação/ordem entre hooks de cadastro mestre carregados antes das coleções e a aplicação da migration é o fator causal demonstrado pelo A/B. O Skip não expôs stack trace; não foi isolado qual arquivo individual acionou o aborto. Não atribuir causalidade mais específica sem nova evidência.
+- **Correção:** aplicar schema por etapas: `0004` schema mínimo de departments; `0005` RLS deny-by-role; `0006` base das quatro outras coleções e campos adicionais; `0007` relações; `0008` índices e fixtures sintéticas; `0009` escopo correto de escrita de projetos. Depois do schema, reinstalar hooks de create/read/update/delete para log de metadados apenas.
+- **Verificação:** Skip `0.0.24` (`e8e9427`) passou setup, análise estática, build e integrações; `test.ran=false`, logo os testes automatizados não executaram. Migrations `0004`–`0009` listadas como applied; backend confirma as cinco coleções, relações e índices. Logs recentes mostram leitura autenticada de departments/employees HTTP 200. Filtro de erros de hooks retornou 0 entradas. Produção ficou em `lastPublishedRef=2b24bd5`.
+- **Gate:** F1-T05 aguarda teste humano no preview; fase permanece 4/8. Não publicar produção nem iniciar F1-T06 até confirmação explícita.
