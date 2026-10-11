@@ -6,4 +6,4 @@
 - 2026-09-24T08:20:00-03:00 · task F1-T03 · capturado · `06_notas/aprendizado-contínuo/AP-2026-09-24-0820-retorno-contabil-nao-estruturado.md`
 - 2026-09-24T10:02:00-03:00 · task F1-T04 · capturado · `06_notas/aprendizado-contínuo/AP-2026-09-24-1002-instrumentacao-nao-e-baseline.md`
 - 2026-10-09T16:21:16-03:00 · task F1-T05 · capturado (candidato) · `06_notas/aprendizado-contínuo/AP-2026-10-09-1621-ordenar-schema-e-hooks-skip.md`
-- 2026-10-11T14:21:47-03:00 · task F1-T05 · sem sinal reutilizável · a hipótese de falha por `$app.save` dentro de `onRecordEnrich` ainda não foi confirmada por chamada autenticada depois da mudança para `0.0.26`.
+- 2026-10-11T14:28:33-03:00 · task F1-T05 · capturado (candidato) · `06_notas/aprendizado-contínuo/AP-2026-10-11-1428-isolar-hooks-de-enriquecimento.md`
