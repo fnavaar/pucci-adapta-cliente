@@ -3,11 +3,11 @@
 - task_id: F1-T05
 - champion: Marcela
 - spec: 04_fase-atual/specs/spec-1-002.md
-- etapa: aguardando_teste_humano
+- etapa: em_correcao
 - autorizacao_implementacao: confirmada — 2026-10-09 (horário original não registrado) — “Crie tudo necessário”, após o relatório de análise da F1-T05
-- teste_humano: pendente — aguarda homologação de colaboradores, departamentos, tomadores, projetos e contratos sintéticos no preview
-- verificacao_automatica: passou com ressalva — Skip `0.0.25` (`1279dde`): setup, análise estática, build e integrações passaram; o runner reportou `test.ran=false`, portanto nenhum teste automatizado foi executado. Migrations `0004` a `0009` estão aplicadas; backend confirma as cinco coleções, relações, índices únicos e RLS. Logs recentes confirmam leituras HTTP 200 de `departments` e `employees`; leitura autenticada de `tomadores`, `projects` e `contracts` ainda depende do teste humano. Filtro de erros de hooks retornou 0 entradas.
-- aprendizado: capturado:06_notas/aprendizado-contínuo/AP-2026-10-09-1621-ordenar-schema-e-hooks-skip.md
-- ultima_acao: integração segura do novo layout implementada no preview; autenticação local e credenciais demo removidas; cadastro mestre e fixtures sintéticas adicionados; trilha append-only de create/read/update/delete configurada sem registrar valores pessoais; RBAC de projetos corrigido para Financeiro somente leitura. Produção não foi publicada.
-- proxima_acao: Champion testar o fluxo no preview e informar se funcionou; não publicar produção nem iniciar F1-T06 antes do aceite
-- atualizado_em: 2026-10-09T16:32:05-03:00
+- teste_humano: falhou — 2026-10-11; a Champion reportou falha no preview. Logs após login HTTP 200 registram leituras de `employees` e `departments` HTTP 500, erro `Failed to enrich records.`; área exata do fluxo ainda não foi informada.
+- verificacao_automatica: falhou em runtime — Skip `0.0.25` (`1279dde`) continua com setup/análise/build/integrações aprovados e `test.ran=false`, porém logs de requests em 2026-10-11 17:10–17:16 UTC mostram 6 respostas 500 em listagem de employees/departments com `Failed to enrich records.`. Migrações `0004`–`0009` permanecem aplicadas; nenhuma correção aplicada ainda.
+- aprendizado: pendente
+- ultima_acao: falha de runtime localizada nos logs do preview após o relato humano; inspecionando hooks `onRecordEnrich` das coleções employees/departments
+- proxima_acao: isolar e corrigir a falha dos hooks de enriquecimento/auditoria sem abrir outra task
+- atualizado_em: 2026-10-11T14:17:01-03:00
