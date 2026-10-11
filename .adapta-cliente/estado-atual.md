@@ -3,11 +3,11 @@
 - task_id: F1-T05
 - champion: Marcela
 - spec: 04_fase-atual/specs/spec-1-002.md
-- etapa: em_correcao
+- etapa: aguardando_teste_humano
 - autorizacao_implementacao: confirmada — 2026-10-09 (horário original não registrado) — “Crie tudo necessário”, após o relatório de análise da F1-T05
-- teste_humano: falhou — 2026-10-11; a Champion reportou falha no preview. Logs após login HTTP 200 registram leituras de `employees` e `departments` HTTP 500, erro `Failed to enrich records.`; área exata do fluxo ainda não foi informada.
-- verificacao_automatica: falhou em runtime — Skip `0.0.25` (`1279dde`) continua com setup/análise/build/integrações aprovados e `test.ran=false`, porém logs de requests em 2026-10-11 17:10–17:16 UTC mostram 6 respostas 500 em listagem de employees/departments com `Failed to enrich records.`. Migrações `0004`–`0009` permanecem aplicadas; nenhuma correção aplicada ainda.
-- aprendizado: pendente
-- ultima_acao: falha de runtime localizada nos logs do preview após o relato humano; inspecionando hooks `onRecordEnrich` das coleções employees/departments
-- proxima_acao: isolar e corrigir a falha dos hooks de enriquecimento/auditoria sem abrir outra task
-- atualizado_em: 2026-10-11T14:17:01-03:00
+- teste_humano: pendente — falha original registrada em 2026-10-11; aguarda novo teste autenticado no preview `0.0.26` após desativar os hooks de leitura. Primeiro validar listagens, sem criar registros novos.
+- verificacao_automatica: QA Skip `0.0.26` (`156263c`) passou em setup, análise estática, build e integrações; `test.ran=false`, testes automatizados não rodaram. A evidência live anterior é de `0.0.25`: GET employees/departments retornaram HTTP 500 `Failed to enrich records.`. Foram desativados temporariamente os cinco hooks `onRecordEnrich` que gravavam em `audit_logs`; ainda não há chamadas autenticadas após `0.0.26` para confirmar correção. Logs também mostram POST departments HTTP 500 `Failed to enrich record.` e tentativas posteriores HTTP 400 `Failed to create record.`; payload/causa interna não disponíveis, então pode haver registro persistido da primeira tentativa — verificar antes de repetir criação.
+- aprendizado: sem_sinal: causa raiz ainda não confirmada por chamada autenticada após a correção
+- ultima_acao: hooks de auditoria de leitura temporariamente suspensos no preview `0.0.26`; QA passou; produção preservada em `2b24bd5`; sem reteste autenticado por falta de sessão da Champion
+- proxima_acao: Champion entrar no preview `0.0.26`, atualizar `/colaboradores` e `/setores` e confirmar se as listagens abrem; não criar registros novos antes de conferir se já existem
+- atualizado_em: 2026-10-11T14:21:47-03:00
