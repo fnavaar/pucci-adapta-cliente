@@ -1,5 +1,13 @@
 # Changelog — Pucci Ambiental · adapta-cliente
 
+## 2026-10-11 · [Marcela] · DEBUG F1-T05: listagem falha durante enriquecimento
+- Após a Champion relatar falha no teste humano, logs do preview `0.0.25` mostram listagens de `employees` e `departments` com HTTP 500 `Failed to enrich records.` depois de login HTTP 200.
+- Hipótese: os hooks de leitura gravavam em `audit_logs` de dentro de `onRecordEnrich`. Suspendi temporariamente os cinco hooks de leitura; não alterei RLS nem hooks de escrita.
+- QA `0.0.26` (`156263c`) passou em setup, análise estática, build e integrações; `test.ran=false`, sem testes automatizados. Sem sessão Champion não há request pós-build, portanto a correção ainda não foi comprovada no runtime.
+- Logs separados mostram POST `departments` HTTP 500 `Failed to enrich record.` e depois HTTP 400 `Failed to create record.`. Sem payload nem erro interno, não afirmar rollback/persistência; confirmar se o código sintético já existe antes de repetir criação.
+- Preview `0.0.26`; produção permanece em `2b24bd5`. F1-T05 continua aberta, agora aguardando reteste humano autenticado, primeiro somente leitura de colaboradores e setores.
+- Debug Summary: `06_notas/debug/debug-2026-10-11-f1-t05-enrichment-500.md`.
+
 ## 2026-10-09 · [Marcela] · DEBUG F1-T05: integração do cadastro mestre no preview
 - Retomada da task ativa sem abrir outra frente. Diagnóstico da falha de migration: a `0004` mínima falhou enquanto os novos hooks de cadastro mestre estavam no working tree e passou após remover esses hooks; o Skip não expôs stack trace que isolasse um arquivo específico. Regra aplicada: criar schema em migrations ordenadas; instalar hooks que referenciam as coleções depois do schema.
 - Migrations `0004` a `0009` aplicadas no Skip Cloud: departamentos, colaboradores, tomadores, projetos e contratos; relações colaborador→departamento, projeto→tomador, contrato→projeto/tomador; fixtures explicitamente sintéticas e índices únicos.
@@ -29,38 +37,29 @@
 ## 2026-09-24 — F1-T03 concluída: prova técnica de exportação e retorno contábil
 - Marcela confirmou: “Sim, a cadeia registrada representa o processo real. Relatório está sim aprovado.”
 - Relatório aprovado em `03_documentos/provas/relatorio-prova-f1-t03.md`, com dados pessoais omitidos.
-- CA-1-014 e CA-1-017 comprovados: Stelanto e Flipchart demonstraram retorno estruturado por rotas read-only; a cadeia real da contabilidade foi registrada com o e-mail de resposta e seis PDFs da competência 08/2026.
+- CA-1-014 e CA-1-017 comprovados: Stelanto e Flipchart demonstraram retorno estruturado por rotas read-only; a cadeia real de e-mails com a contabilidade e o retorno com seis PDFs da competência 08/2026 foram registrados.
 - Logs do Skip confirmaram Stelanto `POST /backend/v1/stelanto/mirror-view` autenticado HTTP 200 e sem sessão HTTP 401; Flipchart `GET /backend/v1/flipchart/consulta` autenticado HTTP 200 e sem sessão HTTP 401.
-- Rastreabilidade entrada→retorno confirmada para os eventos contábeis; recomendação registrada: entrada estruturada na origem e conferência por totais quando o retorno da contabilidade for exclusivamente PDF, com fallback CSV/XLSX ou extração assistida.
+- Rastreabilidade entrada→retorno confirmada; recomendação: entrada estruturada na origem e conferência por totais quando retorno for PDF, com fallback CSV/XLSX ou extração assistida.
 - Nenhum token, credencial ou dado pessoal foi publicado no repositório.
-- Próximo passo: iniciar a análise da F1-T04 em novo ciclo solicitado pela champion; CA-1-015 e CA-1-016 continuam fora do fechamento da F1-T03.
 
 ## 2026-09-23 — F1-T03: prova read-only do Flipchart aprovada parcialmente
 - Marcela executou o teste humano no preview da versão `0.0.8` e informou: “funcionou”.
 - Logs do Skip confirmaram a chamada autenticada `GET /backend/v1/flipchart/consulta?dataInicio=2026-08-01&dataFim=2026-08-31` com HTTP 200; a tentativa sem sessão respondeu HTTP 401.
 - A prova exibiu o retorno estruturado do Flipchart com formato JSON, via, granularidade, campos e fontes.
 - Nenhum token foi exposto e nenhuma resposta com registros foi copiada para o repositório.
-- Subprovas Stelanto e Flipchart aprovadas; F1-T03 permanece aberta somente pela amostra do retorno da contabilidade.
-- Próximo passo: obter a cadeia/amostra real devolvida pela contabilidade por e-mail, com anexos necessários e dados mascarados quando aplicável; depois consolidar o relatório da F1-T03.
+- Subprovas Stelanto e Flipchart aprovadas; F1-T03 permaneceu aberta pela amostra do retorno da contabilidade.
 
 ## 2026-09-23 — F1-T03: prova read-only do Stelanto aprovada parcialmente
 - Marcela executou o teste humano no preview da versão `0.0.7` e informou: “funcionou”.
-- Logs do Skip confirmaram duas chamadas autenticadas `POST /backend/v1/stelanto/mirror-view` com HTTP 200; a chamada sem sessão anterior respondeu HTTP 401.
-- A prova exibiu o retorno estruturado do Stelanto para o período testado, com formato JSON, via, granularidade e resumo por colaborador/dias/batidas.
-- Nenhum token foi exposto e nenhuma resposta de colaborador foi copiada para o repositório.
-- Subprova Stelanto aprovada; F1-T03 permanece aberta porque ainda faltam a prova do Flipchart e a amostra do retorno da contabilidade.
-- Próximo passo: obter contrato técnico do Flipchart e implementar a prova read-only correspondente; coletar a amostra real devolvida pela contabilidade.
+- Logs do Skip confirmaram duas chamadas autenticadas `POST /backend/v1/stelanto/mirror-view` com HTTP 200; a chamada sem sessão respondeu HTTP 401.
+- A prova exibiu retorno estruturado do Stelanto; nenhum token ou dado de colaborador foi copiado para o repositório.
 
 ## 2026-09-22 · F1-T03: fluxo da contabilidade por e-mail esclarecido
 - Marcela informou que a Pucci não tem acesso ao sistema da contabilidade.
 - O fluxo real é: a Pucci envia informações por e-mail para a contabilidade; a contabilidade devolve informações por e-mail para a confecção da folha.
 - A evidência da contabilidade na F1-T03 será a cadeia real de e-mails e os anexos necessários, sem exigir acesso ao sistema contábil.
-- Acesso read-only ao Stelanto e ao Campos Solo–Flipchart continua pendente.
-- F1-T03 permanece em `aguardando_autorizacao`; nenhum produto foi alterado e nenhuma prova foi executada.
 
 ## 2026-09-22 · F1-T03 selecionada; análise concluída, autorização pendente
 - Próxima task elegível da Fase 1: **Provar como o Stelanto e o Flipchart exportam seus dados**.
 - SPEC-1-004 · critérios CA-1-014 e CA-1-017 · Leva 2.
-- Nenhum arquivo de produto foi alterado; nenhuma exportação foi executada.
-- Pré-condições ainda pendentes: acesso read-only ao Stelanto e ao Campos Solo–Flipchart; cadeia real de e-mails enviada pela Pucci à contabilidade e resposta recebida, com anexos quando existirem.
-- Próximo gate: autorização da champion para implementar a prova técnica e disponibilização dos acessos.
+- Próximo gate: autorização da champion e disponibilização dos acessos.
