@@ -1,23 +1,21 @@
 # Changelog — Pucci Ambiental · adapta-cliente
 
-## 2026-10-11 · [Marcela] · DEBUG F1-T05: listagem falha durante enriquecimento
-- Após a Champion relatar falha no teste humano, logs do preview `0.0.25` mostram listagens de `employees` e `departments` com HTTP 500 `Failed to enrich records.` depois de login HTTP 200.
-- Hipótese: os hooks de leitura gravavam em `audit_logs` de dentro de `onRecordEnrich`. Suspendi temporariamente os cinco hooks de leitura; não alterei RLS nem hooks de escrita.
-- QA `0.0.26` (`156263c`) passou em setup, análise estática, build e integrações; `test.ran=false`, sem testes automatizados. Sem sessão Champion não há request pós-build, portanto a correção ainda não foi comprovada no runtime.
-- Logs separados mostram POST `departments` HTTP 500 `Failed to enrich record.` e depois HTTP 400 `Failed to create record.`. Sem payload nem erro interno, não afirmar rollback/persistência; confirmar se o código sintético já existe antes de repetir criação.
-- Preview `0.0.26`; produção permanece em `2b24bd5`. F1-T05 continua aberta, agora aguardando reteste humano autenticado, primeiro somente leitura de colaboradores e setores.
-- Debug Summary: `06_notas/debug/debug-2026-10-11-f1-t05-enrichment-500.md`.
+## 2026-10-11 · [Marcela] · DEBUG F1-T05: listagens recuperadas no preview; cadastros aguardam confirmação visual
+- Após a Champion relatar HTTP 500 nas listagens em `0.0.25`, suspendi temporariamente os cinco hooks de auditoria de leitura que escreviam em `audit_logs` durante `onRecordEnrich`; RLS e hooks de escrita foram mantidos.
+- QA Skip `0.0.26` (`156263c`) passou em setup, análise estática, build e integrações; `test.ran=false`, então testes automatizados não executaram.
+- Marcela confirmou: “Retestei no preview 0.0.26: as listagens de colaboradores e setores abriram.” Logs autenticados entre 17:21 e 17:27 UTC mostram GET HTTP 200 para `employees`, `departments`, `tomadores`, `projects` e `contracts`; a consulta de erros não mostra falhas posteriores a 17:18 UTC.
+- Resultado é consistente com a hipótese de side effect em `onRecordEnrich`, mas a causa individual ainda não está isolada porque cinco hooks foram suspensos de uma vez. A auditoria de leitura permanece temporariamente desativada; não inserir dados reais até restaurá-la e validá-la.
+- Há um POST de `departments` HTTP 200 às 17:25:55 UTC após tentativas anteriores com 500/400; consultar a listagem antes de criar outra fixture com o mesmo código.
+- Produção não publicada: `lastPublishedRef=2b24bd5`. F1-T05 permanece aberta; as APIs responderam 200, mas falta a Champion confirmar visualmente a tela `/cadastros` e os registros sintéticos.
+- Debug Summary: `06_notas/debug/debug-2026-10-11-f1-t05-enrichment-500.md`. Aprendizado candidato: `06_notas/aprendizado-contínuo/AP-2026-10-11-1428-isolar-hooks-de-enriquecimento.md`.
 
 ## 2026-10-09 · [Marcela] · DEBUG F1-T05: integração do cadastro mestre no preview
 - Retomada da task ativa sem abrir outra frente. Diagnóstico da falha de migration: a `0004` mínima falhou enquanto os novos hooks de cadastro mestre estavam no working tree e passou após remover esses hooks; o Skip não expôs stack trace que isolasse um arquivo específico. Regra aplicada: criar schema em migrations ordenadas; instalar hooks que referenciam as coleções depois do schema.
 - Migrations `0004` a `0009` aplicadas no Skip Cloud: departamentos, colaboradores, tomadores, projetos e contratos; relações colaborador→departamento, projeto→tomador, contrato→projeto/tomador; fixtures explicitamente sintéticas e índices únicos.
-- RLS verificado: departamentos/colaboradores legíveis por Champion, Analista e Financeiro; escrita de RH restrita a Champion/Analista. Projetos agora são graváveis por Champion/Analista; Financeiro mantém somente leitura. Tomadores/contratos seguem escopo fiscal da matriz. Auditoria append-only registra ator, ação, coleção, id e nomes de campos, nunca valores pessoais.
+- RLS verificado: departamentos/colaboradores legíveis por Champion, Analista e Financeiro; escrita de RH restrita a Champion/Analista. Projetos graváveis por Champion/Analista; Financeiro mantém somente leitura. Tomadores/contratos seguem escopo fiscal da matriz. Auditoria append-only registra ator, ação, coleção, id e nomes de campos, nunca valores pessoais.
 - Novo layout: login somente PocketBase, sem credencial demo nem fallback local; telas de colaboradores e setores consultam backend; nova tela `/cadastros` consulta tomadores, projetos/obras e contratos; `/fechamento` mantém o módulo F1-T04 protegido.
-- Hooks de auditoria de leitura corrigidos para chamar `e.requestInfo()` como método documentado. Logs não registraram erros de hooks no filtro consultado; execução real dos novos hooks ainda requer verificação humana autenticada.
-- QA Skip `0.0.25` (`1279dde`): setup, análise estática, build e integrações passaram. O estágio de testes reportou `ran:false`; testes automatizados não foram executados. Logs confirmam leituras autenticadas de `departments` e `employees` HTTP 200; ainda falta a Champion validar as telas de tomadores/projetos/contratos.
-- Preview atualizado para `0.0.25`; produção não publicada, `lastPublishedRef=2b24bd5`. F1-T04 preservada. Nenhum dado real foi inserido.
-- F1-T05 aguarda teste humano da Champion; progresso da fase permanece 4/8 (50%) até o aceite.
-- Debug: `06_notas/debug/debug-2026-10-09-f1-t05-migration-hooks.md`. Aprendizado: `06_notas/aprendizado-contínuo/AP-2026-10-09-1621-ordenar-schema-e-hooks-skip.md`.
+- Hooks de auditoria de leitura foram corrigidos para chamar `e.requestInfo()` como método documentado. QA `0.0.25` passou em setup, análise estática, build e integrações; `test.ran=false`. Depois, a Champion observou HTTP 500; no debug os hooks de leitura foram suspensos e o preview avançou para `0.0.26`.
+- Produção permanece em `2b24bd5`; F1-T04 preservada. Nenhum dado real foi inserido.
 
 ## 2026-09-24 · [Marcela] · Task F1-T04 concluída: instrumentação de baseline homologada
 - Marcela executou o teste humano da versão `0.0.12` e confirmou: “Fiz o teste de tudo, pode continuar”.
@@ -35,31 +33,14 @@
 - A senha sintética não estava disponível para reproduzir o fluxo autenticado nesta sessão; não foi inventada nem foi usada credencial real. Novo teste humano permanece obrigatório.
 
 ## 2026-09-24 — F1-T03 concluída: prova técnica de exportação e retorno contábil
-- Marcela confirmou: “Sim, a cadeia registrada representa o processo real. Relatório está sim aprovado.”
-- Relatório aprovado em `03_documentos/provas/relatorio-prova-f1-t03.md`, com dados pessoais omitidos.
-- CA-1-014 e CA-1-017 comprovados: Stelanto e Flipchart demonstraram retorno estruturado por rotas read-only; a cadeia real de e-mails com a contabilidade e o retorno com seis PDFs da competência 08/2026 foram registrados.
-- Logs do Skip confirmaram Stelanto `POST /backend/v1/stelanto/mirror-view` autenticado HTTP 200 e sem sessão HTTP 401; Flipchart `GET /backend/v1/flipchart/consulta` autenticado HTTP 200 e sem sessão HTTP 401.
-- Rastreabilidade entrada→retorno confirmada; recomendação: entrada estruturada na origem e conferência por totais quando retorno for PDF, com fallback CSV/XLSX ou extração assistida.
-- Nenhum token, credencial ou dado pessoal foi publicado no repositório.
+- Marcela confirmou: “Sim, a cadeia registrada representa o processo real. Relatório aprovado em `03_documentos/provas/relatorio-prova-f1-t03.md`, com dados pessoais omitidos.
+- CA-1-014/017 comprovados por provas read-only de Stelanto/Flipchart e cadeia real com a contabilidade; nenhum token/dado pessoal foi publicado no repositório.
 
-## 2026-09-23 — F1-T03: prova read-only do Flipchart aprovada parcialmente
-- Marcela executou o teste humano no preview da versão `0.0.8` e informou: “funcionou”.
-- Logs do Skip confirmaram a chamada autenticada `GET /backend/v1/flipchart/consulta?dataInicio=2026-08-01&dataFim=2026-08-31` com HTTP 200; a tentativa sem sessão respondeu HTTP 401.
-- A prova exibiu o retorno estruturado do Flipchart com formato JSON, via, granularidade, campos e fontes.
-- Nenhum token foi exposto e nenhuma resposta com registros foi copiada para o repositório.
-- Subprovas Stelanto e Flipchart aprovadas; F1-T03 permaneceu aberta pela amostra do retorno da contabilidade.
+## 2026-09-23 — F1-T03: provas read-only do Stelanto e Flipchart
+- Marcela confirmou testes funcionais e logs autenticados HTTP 200; chamadas sem sessão retornaram HTTP 401. Respostas com registros não foram copiadas para o repositório.
 
-## 2026-09-23 — F1-T03: prova read-only do Stelanto aprovada parcialmente
-- Marcela executou o teste humano no preview da versão `0.0.7` e informou: “funcionou”.
-- Logs do Skip confirmaram duas chamadas autenticadas `POST /backend/v1/stelanto/mirror-view` com HTTP 200; a chamada sem sessão respondeu HTTP 401.
-- A prova exibiu retorno estruturado do Stelanto; nenhum token ou dado de colaborador foi copiado para o repositório.
+## 2026-09-22 · F1-T03: fluxo da contabilidade por e-mail
+- Pucci envia informações por e-mail à contabilidade e recebe retorno por e-mail; evidência não depende de acesso ao sistema contábil.
 
-## 2026-09-22 · F1-T03: fluxo da contabilidade por e-mail esclarecido
-- Marcela informou que a Pucci não tem acesso ao sistema da contabilidade.
-- O fluxo real é: a Pucci envia informações por e-mail para a contabilidade; a contabilidade devolve informações por e-mail para a confecção da folha.
-- A evidência da contabilidade na F1-T03 será a cadeia real de e-mails e os anexos necessários, sem exigir acesso ao sistema contábil.
-
-## 2026-09-22 · F1-T03 selecionada; análise concluída, autorização pendente
-- Próxima task elegível da Fase 1: **Provar como o Stelanto e o Flipchart exportam seus dados**.
-- SPEC-1-004 · critérios CA-1-014 e CA-1-017 · Leva 2.
-- Próximo gate: autorização da champion e disponibilização dos acessos.
+## 2026-09-22 · F1-T03 selecionada
+- SPEC-1-004 · CA-1-014/017 · Leva 2. Próximo gate: autorização da Champion e acessos.
