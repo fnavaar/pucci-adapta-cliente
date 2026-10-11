@@ -1,0 +1,11 @@
+# Debug Summary — F1-T05 · falha de enriquecimento no preview
+
+- **Task/SPEC:** F1-T05 · `04_fase-atual/specs/spec-1-002.md`.
+- **Sintoma relatado:** Champion informou falha no teste humano da F1-T05 no preview em 2026-10-11.
+- **Evidência reproduzível:** logs do Skip em 2026-10-11 17:10–17:16 UTC (14:10–14:16 BRT) registram listagens GET de `employees` e `departments` HTTP 500 `Failed to enrich records.` após login HTTP 200. Os hooks `employees_read_audit_log.js` e `departments_read_audit_log.js` executam `onRecordEnrich` e tentam gravar um `audit_logs` para cada registro durante o enriquecimento; os hooks equivalentes de `projects`, `tomadores` e `contracts` faziam o mesmo. O guia do Skip define `onRecordEnrich` como request hook que roda no enriquecimento HTTP e informa que `e.requestInfo()` está disponível; o erro técnico específico não foi exposto.
+- **Hipótese principal:** a gravação de auditoria a partir de `onRecordEnrich` está falhando ao enriquecer respostas. É consistente com o erro, mas ainda não foi confirmada por comparação autenticada antes/depois após o build.
+- **Ação diagnóstica:** desativei temporariamente os cinco hooks de auditoria de leitura. Mantive intactos RLS e auditoria de create/update/delete. Preview atualizado para Skip `0.0.26` (`156263c`).
+- **Verificação automatizada:** setup, análise estática, build e integrações passaram; `test.ran=false`, portanto testes automatizados não executaram. Sem sessão autenticada Champion disponível nesta inspeção, não foi possível gerar requisição pós-build nem confirmar HTTP 200. Filtro de erros de hooks consultado não continha entradas.
+- **Sinal separado de escrita:** logs mostram POST `departments` com HTTP 500 `Failed to enrich record.` e tentativas seguintes HTTP 400 `Failed to create record.`. O log não expõe o detalhe do 400 nem o payload; não é possível afirmar se a primeira escrita persistiu. Antes de repetir a criação, conferir a listagem/código para evitar duplicação.
+- **Estado de publicação:** preview `0.0.26`; produção preservada em `lastPublishedRef=2b24bd5`.
+- **Gate:** `aguardando_teste_humano`. Retestar apenas leitura em `/colaboradores` e `/setores` após autenticar no preview. Se falhar, registrar a tela/ação e horário local para correlacionar os logs. Não publicar, concluir F1-T05 nem iniciar F1-T06.
