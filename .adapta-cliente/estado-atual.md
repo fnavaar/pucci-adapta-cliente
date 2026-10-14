@@ -5,9 +5,9 @@
 - spec: 04_fase-atual/specs/spec-1-002.md
 - etapa: aguardando_teste_humano
 - autorizacao_implementacao: confirmada — 2026-10-09 (horário original não registrado) — “Crie tudo necessário”, após o relatório de análise da F1-T05
-- teste_humano: auditoria aprovada no preview `0.0.29` em 2026-10-14. Evidências da Champion confirmam `read/identification` para `employees` (mensagem anterior), `departments`, `projects`, `contracts` (lista 14:42:54) e `tomadores` (confirmação explícita na mesma rodada de teste). A tela exibe `collection_name`. `sensitive_payroll` é fixture separada e não conta como cadastro mestre.
-- verificacao_automatica: QA `0.0.29` (`3545c75`) passou em setup, análise estática, build e integrações; `test.ran=false`. Logs do backend em 2026-10-14 por volta de 17:42 UTC mostram HTTP 200 para as consultas de `tomadores`, `projects`, `contracts` e `departments`; consultas anteriores mostram `employees`. Produção permanece em `lastPublishedRef=2b24bd5`.
+- teste_humano: auditoria de leitura aprovada no preview `0.0.29` em 2026-10-14. Marcela confirmou eventos `read/identification` para `employees`, `departments`, `tomadores`, `projects` e `contracts`; a lista de 14:42:54 inclui departments, projects e contracts, e as confirmações da Champion nesta rodada cobrem tomadores e employees. A tabela exibe `collection_name`. Leitura de `sensitive_payroll` é fixture separada e não conta para F1-T05.
+- verificacao_automatica: Skip `0.0.29` (`3545c75`) passou em setup, análise estática, build e integrações; `test.ran=false`. Logs do backend em 2026-10-14 17:40–17:42 UTC registram HTTP 200 para as consultas de cadastro. Produção permanece em `lastPublishedRef=2b24bd5`.
 - aprendizado: capturado:06_notas/aprendizado-contínuo/AP-2026-10-11-1428-isolar-hooks-de-enriquecimento.md
-- ultima_acao: teste humano de auditoria das cinco coleções aprovado em `0.0.29`; produção não publicada
-- proxima_acao: Champion confirmar se os cadastros reais autorizados pela política já foram carregados no ambiente autorizado; não enviar dados pessoais no chat
-- atualizado_em: 2026-10-14T14:55:20-03:00
+- ultima_acao: reteste humano da trilha das cinco coleções aprovado em `0.0.29`; falta confirmar o requisito de carga dos cadastros reais autorizados após aprovação da política
+- proxima_acao: Champion confirmar apenas se os cadastros reais autorizados pela política foram carregados no ambiente autorizado; não enviar valores, nomes, CNPJs ou identificadores pelo chat
+- atualizado_em: 2026-10-14T14:57:00-03:00
