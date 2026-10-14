@@ -3,14 +3,14 @@
 **Data:** 2026-10-14 · **Fase atual:** 1 (núcleo operacional do fechamento)
 
 ## Estado
-- **Tasks concluídas:** 4/8 (50%). F1-T01 a F1-T04 seguem concluídas nos limites registrados. F1-T05 está em correção; não será marcada como concluída enquanto a trilha de leitura não estiver restaurada e validada.
-- **F1-T05 — aceite visual de fixtures:** em 2026-10-14, Marcela confirmou colaboradores, setores e `/cadastros` em `0.0.26` (`156263c`). Logs daquela versão registraram HTTP 200 nas APIs de `employees`, `departments`, `tomadores`, `projects` e `contracts`.
-- **Auditoria de leitura:** cinco hooks `onRecordEnrich` foram suspensos para corrigir HTTP 500. Em `0.0.27` (`9a086ff`), `employees_read_audit_log.js` foi migrado para `onRecordsListRequest` como experimento; QA passou em setup, estática, build e integrações, mas `test.ran=false`. Não há request autenticado pós-build; logs mais recentes mostram tentativas de login HTTP 400. Hooks de leitura das outras coleções continuam suspensos. **Não inserir dados reais.**
-- **Próximo teste:** autenticar em `0.0.27`, abrir `/colaboradores`; depois `/fechamento` → “Controle de acesso e auditoria” → “Atualizar trilha”. Confirmar listagem sem erro e log de leitura `employees` com `identification`. Usar apenas fixtures sintéticas. Só então replicar padrão para as demais coleções e repetir QA/runtime.
-- **Produção:** não publicada. `lastPublishedRef=2b24bd5`.
-- **F1-T04:** preservada. B-MET-01 e B-STE-01 seguem pendentes até primeiro fechamento real medido.
+- **Tasks concluídas:** 4/8 (50%). F1-T01 a F1-T04 seguem concluídas nos limites registrados. F1-T05 continua ativa; ainda não fechar nem iniciar F1-T06.
+- **F1-T05 — telas cadastrais:** Marcela aprovou `/colaboradores`, `/setores` e `/cadastros` com fixtures sintéticas em `0.0.26`. Logs daquela versão mostram HTTP 200 nas cinco APIs master-data.
+- **F1-T05 — auditoria de leitura:** hook `onRecordsListRequest` de employees validado em `0.0.27`; Marcela apresentou eventos `read/identification` em `0.0.28`, mas a tela não exibia a coleção, impossibilitando comprovar cobertura de cada tabela. Corrigida a UI em `0.0.29` (`3545c75`) para exibir `collection_name` na trilha; QA passou em setup, estática, build e integrações. `test.ran=false`, então testes automatizados não rodaram.
+- **Próximo passo:** reteste autenticado em `0.0.29`: `/fechamento` → “Controle de acesso e auditoria” → “Atualizar trilha”; confirmar evento `read` de employees, departments, tomadores, projects e contracts, todos com `identification`, usando fixtures apenas. Se algum estiver ausente, manter F1-T05 aberta e depurar. Não inserir dados reais.
+- **Produção:** preservada em `lastPublishedRef=2b24bd5`; nenhuma publicação desta correção.
+- **F1-T04:** preservada; B-MET-01/B-STE-01 aguardam o primeiro fechamento real medido.
 
 ## Ambiente
-- Preview: `https://rh-pucci-3116c--preview.goskip.app` · `0.0.27` (`9a086ff`).
+- Preview: `https://rh-pucci-3116c--preview.goskip.app` · `0.0.29` (`3545c75`).
 - Backend: https://rh-pucci-3116c.shrd00.internal.goskip.dev
 - Produção: https://rh-pucci-3116c.goskip.app · referência publicada `2b24bd5`.
