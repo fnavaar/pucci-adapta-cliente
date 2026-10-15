@@ -1,5 +1,12 @@
 # Changelog — Pucci Ambiental · adapta-cliente
 
+## 2026-10-15 · [Marcela] · F1-T05 trilha de cinco coleções confirmada em produção; aguarda cadastros mestres reais
+- Marcela confirmou que, em produção `0.0.29` (`3545c75`), após clicar “Atualizar trilha”, aparecem as cinco coleções; logs do backend mostram GET HTTP 200 de `audit_logs` às 10:31 UTC. O conteúdo é aceite humano da Champion; o HTTP 200 sozinho não foi tratado como prova de conteúdo.
+- O aceite de produção cobre telas (Colaboradores, Setores/Departamentos, Fechamento Operacional) e visibilidade da tabela da trilha. Em 2026-10-14, Marcela informou que nenhum cadastro real havia sido lançado nos formulários. A descrição da F1-T05 exige cadastro mestre real depois da liberação da política.
+- Próxima ação: Marcela cadastrar em produção apenas os registros mestres necessários (colaboradores, setores, tomadores, projetos/obras e contratos), conforme política/matriz aprovada. Não enviar dados pessoais pelo chat. Após confirmação sem detalhes, verificar listas/trilha e só então fechar F1-T05.
+- F1-T05 permanece ativa; não iniciar F1-T06 até o fechamento formal.
+- QA da `0.0.29`: setup, análise estática, build e integrações passaram; `test.ran=false`.
+
 ## 2026-10-15 · [Marcela] · F1-T05 produção publicada e telas confirmadas; trilha aguarda reteste
 - Marcela confirmou visualmente as telas de Colaboradores, Setores/Departamentos e Fechamento Operacional em produção. O Skip confirma `lastPublishedRef=3545c75` (`0.0.29`); não foi feita publicação pelo agente nesta rodada.
 - Logs em 2026-10-15 10:18–10:19 UTC mostram HTTP 200 nas listagens de `employees`, `departments`, `tomadores`, `projects` e `contracts`. Esses status não demonstram os eventos gravados em `audit_logs`.
