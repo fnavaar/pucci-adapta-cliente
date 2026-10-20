@@ -1,9 +1,15 @@
 # Changelog — Pucci Ambiental · adapta-cliente
 
+## 2026-10-20 · [Marcela] · DEBUG F1-T05: cadastro de contrato não salvo
+- Logs de produção mostram 13 tentativas POST para criação em `contracts` rejeitadas com HTTP 400 entre 11:12 e 11:17 (horário local). Os logs não incluem o erro de validação por campo nem o payload; nenhum contrato real foi consultado pelo agente.
+- Evidência de código/configuração: formulário só envia quando `contract_number`, projeto e tomador têm valor; a coleção exige `contract_number` e tem índice único. O log não prova se houve duplicidade ou outra falha de validação.
+- Contratos sem número oficial continuam sem regra de identificação definida. Não gerar número fictício nem alterar o schema sem decisão explícita de Marcela.
+- Próxima ação: pedir somente o texto exato do aviso exibido no formulário, sem nome/número/dados do contrato; classificar o HTTP 400 antes de propor implementação. F1-T05 segue ativa; não iniciar F1-T06.
+
 ## 2026-10-15 · [Marcela] · F1-T05 trilha de cinco coleções confirmada em produção; aguarda cadastros mestres reais
 - Marcela confirmou que, em produção `0.0.29` (`3545c75`), após clicar “Atualizar trilha”, aparecem as cinco coleções; logs do backend mostram GET HTTP 200 de `audit_logs` às 10:31 UTC. O conteúdo é aceite humano da Champion; o HTTP 200 sozinho não foi tratado como prova de conteúdo.
 - O aceite de produção cobre telas (Colaboradores, Setores/Departamentos, Fechamento Operacional) e visibilidade da tabela da trilha. Em 2026-10-14, Marcela informou que nenhum cadastro real havia sido lançado nos formulários. A descrição da F1-T05 exige cadastro mestre real depois da liberação da política.
-- Próxima ação: Marcela cadastrar em produção apenas os registros mestres necessários (colaboradores, setores, tomadores, projetos/obras e contratos), conforme política/matriz aprovada. Não enviar dados pessoais pelo chat. Após confirmação sem detalhes, verificar listas/trilha e só então fechar F1-T05.
+- Próxima ação: Marcela cadastrar em produção apenas os registros mestres necessários (colaboradores, setores, tomadores e CNPJs, projetos/obras e contratos), conforme política/matriz aprovada. Não enviar dados pessoais pelo chat. Após confirmação sem detalhes, verificar listas/trilha e só então fechar F1-T05.
 - F1-T05 permanece ativa; não iniciar F1-T06 até o fechamento formal.
 - QA da `0.0.29`: setup, análise estática, build e integrações passaram; `test.ran=false`.
 
@@ -28,7 +34,7 @@
 - Debug Summary: `06_notas/debug/debug-2026-10-11-f1-t05-enrichment-500.md`.
 
 ## 2026-10-09 · [Marcela] · DEBUG F1-T05: integração do cadastro mestre no preview
-- Migrations `0004`–`0009` aplicadas em etapas para cadastro mestre, relações, fixtures sintéticas, índices e RBAC. Login PocketBase; produção preservada em `2b24bd5`.
+- Migrations `0004`–`0009` aplicadas em etapas para cadastro mestre, relações, fixtures sintéticas, índices e RBAC. Produção preservada em `2b24bd5`.
 
 ## 2026-09-24 · F1-T04: instrumentação de baseline homologada
 - T0, T1, touch time e lead time implementados/homologados em `0.0.12`; baseline real e decisão Stelanto seguem pendentes até primeiro fechamento real medido.
